@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp2522202510termprojectgamename.GameController">
+    <!-- Background Image (Replace with actual image) -->
+    <ImageView fx:id="background" fitWidth="800" fitHeight="500" />
+
+    <!-- Game Pane (Holds player, enemies, bullets) -->
+    <Pane fx:id="gamePane" prefWidth="800" prefHeight="500" />
+
+    <!-- Player Image (Replace with actual image) -->
+    <ImageView fx:id="player" fitWidth="50" fitHeight="50" layoutX="375" layoutY="400" />
+</AnchorPane>
