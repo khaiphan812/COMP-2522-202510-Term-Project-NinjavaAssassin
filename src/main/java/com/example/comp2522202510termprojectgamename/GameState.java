@@ -55,5 +55,11 @@ public class GameState {
         return player;
     }
 
-
+    public void resetGame() {
+        gameObjects.clear();
+        numLives = 10;
+        score = 0;
+        gameObjects.add(player);
+        reset = true;
+    }
 }
