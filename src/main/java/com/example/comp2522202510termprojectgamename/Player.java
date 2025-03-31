@@ -37,4 +37,10 @@ public class Player extends GameObject {
             xCoordinate += SPEED;
         }
     }
+
+    @Override
+    public void render(GraphicsContext gc) {
+        gc.drawImage(playerImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
+    }
+    
 }
