@@ -14,6 +14,10 @@ public class Player extends GameObject {
 
     private static final Image playerImage = new Image(Player.class.getResourceAsStream("/images/ninja.gif"));
 
+    public Player(double xCoordinate, double yCoordinate) {
+        super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
+    }
+
 
 
 
