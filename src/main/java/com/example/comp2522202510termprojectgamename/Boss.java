@@ -11,5 +11,7 @@ public class Boss extends GameObject {
 
     private static final Image bossImage = new Image(Boss.class.getResourceAsStream("/images/hog.gif"));
 
-
+    public Boss(double xCoordinate, double yCoordinate) {
+        super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
+    }
 }
