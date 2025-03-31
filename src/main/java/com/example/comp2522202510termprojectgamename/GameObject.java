@@ -18,5 +18,16 @@ public abstract class GameObject {
         this.height = height;
     }
 
+    public abstract void update();
+
+    public abstract void render(GraphicsContext gc);
+
+    public abstract boolean isDead();
+
+    public double getX() {
+        return xCoordinate;
+    }
+    public double getY() { return yCoordinate; }
+
 
 }
