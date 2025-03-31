@@ -25,5 +25,13 @@ public class Enemy extends GameObject {
         gc.drawImage(enemyImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
     }
 
-    
+    @Override
+    public double getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public double getHeight() {
+        return HEIGHT;
+    }
 }
