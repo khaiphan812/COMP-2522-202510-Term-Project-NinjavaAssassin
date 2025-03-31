@@ -50,4 +50,15 @@ public class GameMenu {
         return button;
     }
 
+    private void showInstructions() {
+        Alert instructionsAlert = new Alert(AlertType.INFORMATION);
+        instructionsAlert.setTitle("Instructions");
+        instructionsAlert.setHeaderText("NinJava Guide");
+        instructionsAlert.setContentText("Use the Left and Right arrow keys to move your Ninja.\n" +
+                "Press SPACE to throw shurikens at and destroy the enemies.\n" +
+                "If an enemy reaches the bottom of the screen, you lose a life.\n" +
+                "The game resets if you lose all lives.");
+        instructionsAlert.showAndWait();
+    }
+
 }
