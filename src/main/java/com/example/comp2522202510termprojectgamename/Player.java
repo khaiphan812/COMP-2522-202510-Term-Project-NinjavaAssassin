@@ -18,7 +18,15 @@ public class Player extends GameObject {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
 
+    @Override
+    public double getWidth() {
+        return WIDTH;
+    }
 
+    @Override
+    public double getHeight() {
+        return HEIGHT;
+    }
 
 
 }
