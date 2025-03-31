@@ -11,4 +11,10 @@ public class Player extends GameObject {
     private static final double SPEED = 5;
     private boolean moveLeft;
     private boolean moveRight;
+
+    private static final Image playerImage = new Image(Player.class.getResourceAsStream("/images/ninja.gif"));
+
+
+
+
 }
