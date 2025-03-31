@@ -8,6 +8,7 @@ public class Boss extends GameObject {
     public static final int WIDTH = 60;
     public static final int HEIGHT = 60;
     private static final double SPEED = 5;
+    private boolean isDead = false;
 
     private static final Image bossImage = new Image(Boss.class.getResourceAsStream("/images/hog.gif"));
 
@@ -34,5 +35,14 @@ public class Boss extends GameObject {
     @Override
     public double getHeight() {
         return HEIGHT;
+    }
+
+    @Override
+    public boolean isDead() {
+        return this.isDead;
+    }
+
+    public void setDead(boolean b) {
+        this.isDead = b;
     }
 }
