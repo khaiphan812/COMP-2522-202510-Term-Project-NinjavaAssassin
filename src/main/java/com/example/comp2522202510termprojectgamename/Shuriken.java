@@ -24,4 +24,25 @@ public class Shuriken extends GameObject {
     public double getHeight() {
         return HEIGHT;
     }
+
+    @Override
+    public void update() {
+        yCoordinate -= SPEED;
+    }
+
+    @Override
+    public void render(GraphicsContext gc) {
+        gc.drawImage(shurikenImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
+    }
+
+    private boolean dead = false;
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
+    }
+
+    @Override
+    public boolean isDead() {
+        return dead;
+    }
 }
