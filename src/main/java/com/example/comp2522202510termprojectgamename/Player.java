@@ -28,5 +28,13 @@ public class Player extends GameObject {
         return HEIGHT;
     }
 
-
+    @Override
+    public void update() {
+        if (moveLeft && xCoordinate - SPEED > 0) {
+            xCoordinate -= SPEED;
+        }
+        if (moveRight && xCoordinate + WIDTH <= GameState.WIDTH) {
+            xCoordinate += SPEED;
+        }
+    }
 }
