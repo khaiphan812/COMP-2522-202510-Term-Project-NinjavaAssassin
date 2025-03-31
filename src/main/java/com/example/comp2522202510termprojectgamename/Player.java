@@ -11,6 +11,7 @@ public class Player extends GameObject {
     private static final double SPEED = 5;
     private boolean moveLeft;
     private boolean moveRight;
+    private boolean dead = false;
 
     private static final Image playerImage = new Image(Player.class.getResourceAsStream("/images/ninja.gif"));
 
@@ -55,7 +56,6 @@ public class Player extends GameObject {
         Shuriken shuriken = new Shuriken(xCoordinate, yCoordinate - HEIGHT / 2 - Shuriken.HEIGHT);
         newObjects.add(shuriken);
     }
-    private final boolean dead = false;
 
     @Override
     public boolean isDead() {

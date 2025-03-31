@@ -8,6 +8,7 @@ public class Enemy extends GameObject {
     protected static final int WIDTH = 65;
     protected static final int HEIGHT = 65;
     public static double SPEED = 2;
+    private boolean dead = false;
 
     private static final Image enemyImage = new Image(Enemy.class.getResourceAsStream("/images/junkrat.gif"));
 
@@ -34,8 +35,6 @@ public class Enemy extends GameObject {
     public double getHeight() {
         return HEIGHT;
     }
-
-    private boolean dead = false;
 
     public void setDead(boolean dead) {
         this.dead = dead;
