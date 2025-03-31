@@ -50,4 +50,10 @@ public class Player extends GameObject {
     public void setMoveRight(boolean moveRight) {
         this.moveRight = moveRight;
     }
+
+    public void shoot(List<GameObject> newObjects) {
+        Shuriken shuriken = new Shuriken(xCoordinate, yCoordinate - HEIGHT / 2 - Shuriken.HEIGHT);
+        newObjects.add(shuriken);
+    }
+
 }
