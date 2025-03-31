@@ -31,8 +31,24 @@ public class GameMenu {
         welcomeText.setX((GameState.WIDTH - welcomeText.getLayoutBounds().getWidth()) / 2);
         welcomeText.setY(100);
 
-        Button startButton = createButton
+        Button startButton = createButton("START", 200);
+        startButton.setOnAction(event -> primaryStage.setScene(gameScene));
+
+        Button instructionButton = createButton("Instructions", 300);
+        instructionButton.setOnAction(event -> showInstructions());
+
+        Button quitButton = createButton("Quit", 400);
+        quitButton.setOnAction(event -> System.exit(0));
+
+        VBox buttonsContainer = new VBox(20);
+        buttonsContainer.setLayoutX((GameState.WIDTH - startButton.getPrefWidth()) / 2 - 100);
+        buttonsContainer.setLayoutY(200);
+        buttonsContainer.getChildren().addAll(startButton, instructionButton, quitButton);
+        menuPane.getChildren().addAll(welcomeText, buttonsContainer);
+
+        return menuPane;
     }
+
     private Button createButton(String text, double y) {
         Button button = new Button(text);
         button.setLayoutX((GameState.WIDTH - button.getPrefWidth()) / 2);
