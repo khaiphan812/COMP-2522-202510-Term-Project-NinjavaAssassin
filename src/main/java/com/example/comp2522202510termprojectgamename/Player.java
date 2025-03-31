@@ -42,5 +42,12 @@ public class Player extends GameObject {
     public void render(GraphicsContext gc) {
         gc.drawImage(playerImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
     }
-    
+
+    public void setMoveLeft(boolean moveLeft) {
+        this.moveLeft = moveLeft;
+    }
+
+    public void setMoveRight(boolean moveRight) {
+        this.moveRight = moveRight;
+    }
 }
