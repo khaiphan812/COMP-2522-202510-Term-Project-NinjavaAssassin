@@ -29,5 +29,11 @@ public abstract class GameObject {
     }
     public double getY() { return yCoordinate; }
 
+    public Bounds getBounds() {
+        return new Rectangle(xCoordinate - getWidth() / 2, yCoordinate - getHeight() / 2, getWidth(), getHeight()).getBoundsInLocal();
+    }
 
+    public abstract double getWidth();
+
+    public abstract double getHeight();
 }
