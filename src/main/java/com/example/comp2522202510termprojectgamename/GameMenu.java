@@ -72,6 +72,8 @@ public class GameMenu {
         instructionsAlert.setHeaderText("NinJava Guide");
         instructionsAlert.setContentText("Use the Left and Right arrow keys to move your Ninja.\n" +
                 "Press SPACE to throw shurikens at and destroy the enemies.\n" +
+                "Enemies move faster as you reach higher score.\n" +
+                "Killing special enemies earn you more points\n" +
                 "If an enemy reaches the bottom of the screen, you lose a life.\n" +
                 "The game resets if you lose all lives.");
         instructionsAlert.showAndWait();
