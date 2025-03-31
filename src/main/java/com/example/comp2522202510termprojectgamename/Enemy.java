@@ -34,4 +34,15 @@ public class Enemy extends GameObject {
     public double getHeight() {
         return HEIGHT;
     }
+
+    private boolean dead = false;
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
+    }
+
+    @Override
+    public boolean isDead() {
+        return dead;
+    }
 }
