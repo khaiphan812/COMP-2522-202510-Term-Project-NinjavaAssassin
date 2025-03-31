@@ -38,4 +38,11 @@ public class GameUI {
         root.getChildren().addAll(scoreLabel, lifeLabel);
     }
 
+    public void updateScore(int score) {
+        scoreLabel.setText("Score: " + score);
+    }
+
+    public void updateLives(int lives) {
+        lifeLabel.setText("Lives: " + lives);
+    }
 }
