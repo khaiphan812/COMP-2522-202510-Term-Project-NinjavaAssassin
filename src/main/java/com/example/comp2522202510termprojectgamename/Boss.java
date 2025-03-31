@@ -25,4 +25,14 @@ public class Boss extends GameObject {
         // Draw image instead of filling a rectangle
         gc.drawImage(bossImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
     }
+
+    @Override
+    public double getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public double getHeight() {
+        return HEIGHT;
+    }
 }
