@@ -11,4 +11,7 @@ public class Enemy extends GameObject {
 
     private static final Image enemyImage = new Image(Enemy.class.getResourceAsStream("/images/junkrat.gif"));
 
+    public Enemy(double xCoordinate, double yCoordinate) {
+        super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
+    }
 }
