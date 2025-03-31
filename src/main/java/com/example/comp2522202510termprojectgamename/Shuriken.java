@@ -11,4 +11,7 @@ public class Shuriken extends GameObject {
 
     private static final Image shurikenImage = new Image(Shuriken.class.getResourceAsStream("/images/grey.gif"));
 
+    public Shuriken(double xCoordinate, double yCoordinate) {
+        super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
+    }
 }
