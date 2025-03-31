@@ -14,4 +14,15 @@ public class Boss extends GameObject {
     public Boss(double xCoordinate, double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
+
+    @Override
+    public void update() {
+        yCoordinate += SPEED;
+    }
+
+    @Override
+    public void render(GraphicsContext gc) {
+        // Draw image instead of filling a rectangle
+        gc.drawImage(bossImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
+    }
 }
