@@ -14,4 +14,16 @@ public class Enemy extends GameObject {
     public Enemy(double xCoordinate, double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
+
+    @Override
+    public void update() {
+        yCoordinate += SPEED;
+    }
+
+    @Override
+    public void render(GraphicsContext gc) {
+        gc.drawImage(enemyImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
+    }
+
+    
 }
