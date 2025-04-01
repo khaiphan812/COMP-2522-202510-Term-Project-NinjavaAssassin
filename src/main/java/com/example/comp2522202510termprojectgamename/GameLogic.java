@@ -6,5 +6,22 @@ import java.util.List;
 import java.util.Random;
 
 public class GameLogic {
+    private final GameState gameState;
+    private final GameUI gameUI;
+    private long lastEnemySpawned = 0;
+    private long lastPowerUpSpawned = 0;
+
+    public GameLogic(GameState gameState, GameUI gameUI) {
+        this.gameState = gameState;
+        this.gameUI = gameUI;
+    }
+
+    private void spawnEnemy() {
+        Random random = new Random();
+        int x = random.nextInt(GameState.WIDTH - 50) + 25;
+        Enemy enemy = new Enemy(x, -40);
+        gameState.getGameObjects().add(enemy);
+    }
+
 
 }
