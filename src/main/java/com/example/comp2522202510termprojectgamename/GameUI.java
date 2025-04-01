@@ -45,4 +45,24 @@ public class GameUI {
     public void updateLives(int lives) {
         lifeLabel.setText("Lives: " + lives);
     }
+
+    public void showGameOverMessage() {
+        Text lostMessage = new Text("Game Over! Your score is " + gameState.getScore() + ".\nGame has been reset.");
+        lostMessage.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 18));
+        lostMessage.setFill(Color.WHITESMOKE);
+        lostMessage.setX((GameState.WIDTH - lostMessage.getLayoutBounds().getWidth()) / 2);
+        lostMessage.setY(GameState.HEIGHT / 2);
+        root.getChildren().add(lostMessage);
+
+        new Timer().schedule(
+                new TimerTask() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(() ->
+                                root.getChildren().remove(lostMessage));
+                    }
+                },
+                2000
+        );
+    }
 }
