@@ -9,6 +9,7 @@ public class Boss extends GameObject {
     public static final int HEIGHT = 60;
     private static final double SPEED = 5;
     private boolean isDead = false;
+    private static int hitCount = 3;
 
     private static final Image bossImage = new Image(Boss.class.getResourceAsStream("/images/hog.gif"));
 
@@ -23,7 +24,6 @@ public class Boss extends GameObject {
 
     @Override
     public void render(GraphicsContext gc) {
-        // Draw image instead of filling a rectangle
         gc.drawImage(bossImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
     }
 
@@ -35,6 +35,13 @@ public class Boss extends GameObject {
     @Override
     public double getHeight() {
         return HEIGHT;
+    }
+
+    public void takeHit() {
+        hitCount--;
+        if (hitCount <= 0) {
+            setDead(true);
+        }
     }
 
     @Override
