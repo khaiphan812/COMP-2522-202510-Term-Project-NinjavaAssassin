@@ -18,8 +18,8 @@ public class GameLogic {
 
     private void spawnEnemy() {
         Random random = new Random();
-        int x = random.nextInt(GameState.WIDTH - 50) + 25;
-        Enemy enemy = new Enemy(x, -40);
+        int coordinate = random.nextInt(GameState.WIDTH - 50) + 25;
+        Enemy enemy = new Enemy(coordinate, -40);
         gameState.getGameObjects().add(enemy);
     }
 
