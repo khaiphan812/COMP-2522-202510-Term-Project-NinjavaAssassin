@@ -18,10 +18,16 @@ public class GameLogic {
 
     private void spawnEnemy() {
         Random random = new Random();
-        int coordinate = random.nextInt(GameState.WIDTH - 50) + 25;
-        Enemy enemy = new Enemy(coordinate, -40);
+        int randomCoordinate = random.nextInt(GameState.WIDTH - 50) + 25;
+        Enemy enemy = new Enemy(randomCoordinate, -40);
         gameState.getGameObjects().add(enemy);
     }
 
+    private void spawnBoss() {
+        Random random = new Random();
+        int randomCoordinate = random.nextInt(GameState.WIDTH - Boss.WIDTH) + Boss.WIDTH / 2;
+        Boss boss = new Boss(randomCoordinate, - Boss.HEIGHT / 2);
+        gameState.getGameObjects().add(boss);
+    }
 
 }
