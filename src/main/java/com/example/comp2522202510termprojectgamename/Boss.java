@@ -7,9 +7,9 @@ public class Boss extends GameObject {
 
     public static final int WIDTH = 60;
     public static final int HEIGHT = 60;
-    private static final double SPEED = 5;
+    private static final double SPEED = 3.5;
     private boolean isDead = false;
-    private static int hitCount = 3;
+    private static int hitCount = 5;
 
     private static final Image bossImage = new Image(Boss.class.getResourceAsStream("/images/hog.gif"));
 
