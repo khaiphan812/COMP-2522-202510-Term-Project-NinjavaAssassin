@@ -10,10 +10,25 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class NinJava {
+import java.util.Objects;
+
+public class NinJava extends Application {
 
     private GameState gameState;
     private GameUI gameUI;
     private GameLogic gameLogic;
     private ImageView playerView;
+
+    public static void main(final String[] args) {
+        launch(args);
+    }
+
+    private void addBackground(final Pane root) {
+        Image bgImage = new Image(Objects.requireNonNull(getClass().
+                getResourceAsStream("/images/bg-dark.jpg")));
+        ImageView bgView = new ImageView(bgImage);
+        bgView.setFitWidth(GameState.WIDTH);
+        bgView.setFitHeight(GameState.HEIGHT);
+        root.getChildren().add(0, bgView);
+    }
 }
