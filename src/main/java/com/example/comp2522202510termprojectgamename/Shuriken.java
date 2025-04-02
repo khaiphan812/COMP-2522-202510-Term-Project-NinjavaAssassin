@@ -7,8 +7,8 @@ import java.util.Objects;
 
 public class Shuriken extends GameObject {
 
-    public static final int WIDTH = 25;
-    public static final int HEIGHT = 25;
+    protected static final int WIDTH = 25;
+    protected static final int HEIGHT = 25;
     private static final double SPEED = 7;
     private static final Image SHURIKEN_IMAGE = new Image(Objects.requireNonNull(Shuriken.class.
             getResourceAsStream("/images/grey.gif")));
