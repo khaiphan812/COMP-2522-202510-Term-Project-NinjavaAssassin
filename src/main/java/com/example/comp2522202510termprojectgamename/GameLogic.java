@@ -1,7 +1,6 @@
 package com.example.comp2522202510termprojectgamename;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -36,7 +35,7 @@ public class GameLogic {
     private void spawnBoss() {
         Random random = new Random();
         int randomCoordinate = random.nextInt(GameState.WIDTH - Boss.WIDTH) + Boss.WIDTH / 2;
-        Boss boss = new Boss(randomCoordinate, - Boss.HEIGHT / 2);
+        Boss boss = new Boss(randomCoordinate, (double) -Boss.HEIGHT / 2);
         gameState.getGameObjects().add(boss);
     }
 
