@@ -11,7 +11,8 @@ public abstract class GameObject {
     protected double width;
     protected double height;
 
-    public GameObject(double xCoordinate, double yCoordinate, double width, double height) {
+    public GameObject(final double xCoordinate, final double yCoordinate,
+                      final double width, final double height) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
         this.width = width;
@@ -25,14 +26,14 @@ public abstract class GameObject {
     public abstract boolean isDead();
 
     public double getX() {
-        return xCoordinate;
-    }
-    public double getY() { return yCoordinate; }
+        return xCoordinate; }
+
+    public double getY() {
+        return yCoordinate; }
 
     public Bounds getBounds() {
         return new Rectangle(xCoordinate - getWidth() / 2, yCoordinate - getHeight() / 2, getWidth(), getHeight()).getBoundsInLocal();
     }
-
     public abstract double getWidth();
 
     public abstract double getHeight();
