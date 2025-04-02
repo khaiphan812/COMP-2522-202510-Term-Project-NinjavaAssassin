@@ -52,28 +52,50 @@ public class Boss extends GameObject {
                 yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
 
+    /**
+     * Gets the width of the boss as a double.
+     *
+     * @return the width of the boss as a double
+     */
     @Override
     public double getWidth() {
         return WIDTH;
     }
 
+    /**
+     * Gets the height of the boss as a double.
+     *
+     * @return the height of the boss as a double
+     */
     @Override
     public double getHeight() {
         return HEIGHT;
     }
 
+    /**
+     * Controls the boss' hit count.
+     */
     public void takeHit() {
         hitCount--;
         if (hitCount == 0) {
             setDead(true);
         }
     }
-
+    /**
+     * Check if the boss is dead.
+     *
+     * @return true if the boss is dead, otherwise false.
+     */
     @Override
     public boolean isDead() {
         return this.isDead;
     }
 
+    /**
+     * Sets the life/death condition to the boss.
+     *
+     * @param dead a boolean value
+     */
     public void setDead(final boolean dead) {
         this.isDead = dead;
     }
