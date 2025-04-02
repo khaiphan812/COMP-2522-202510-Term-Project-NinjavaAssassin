@@ -6,8 +6,8 @@ import java.util.Objects;
 
 public class Boss extends GameObject {
 
-    public static final int WIDTH = 120;
-    public static final int HEIGHT = 120;
+    protected static final int WIDTH = 120;
+    protected static final int HEIGHT = 120;
     private static final double SPEED = 3;
     private static final Image BOSS_IMAGE = new Image(Objects.requireNonNull(Boss.class.
             getResourceAsStream("/images/hog.gif")));
@@ -54,5 +54,24 @@ public class Boss extends GameObject {
 
     public void setDead(final boolean dead) {
         this.isDead = dead;
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Boss boss = (Boss) object;
+        return hitCount == boss.hitCount && isDead == boss.isDead;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hitCount, isDead);
+    }
+
+    @Override
+    public String toString() {
+        return "Boss{" + "hitCount=" + hitCount + ", isDead=" + isDead + '}';
     }
 }
