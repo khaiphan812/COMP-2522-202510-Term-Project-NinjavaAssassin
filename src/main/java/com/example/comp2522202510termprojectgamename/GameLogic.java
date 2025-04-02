@@ -44,5 +44,18 @@ public class GameLogic {
                 bosses.add((Boss) object);
             }
         }
+        for (Shuriken shuriken : shurikens) {
+            for (Enemy enemy : enemies) {
+                if (shuriken.getBounds().intersects(enemy.getBounds())) {
+                    shuriken.setDead(true);
+                    enemy.setDead(true);
+                    gameState.setScore(gameState.getScore() + 10);
+                    gameUI.updateScore(gameState.getScore());
+
+                    if (gameState.getScore() % 100 == 0) {
+                        Enemy.SPEED += 2;
+                    }
+                }
+            }
 
 }
