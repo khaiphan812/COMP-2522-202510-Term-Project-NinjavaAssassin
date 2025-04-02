@@ -15,9 +15,7 @@ import java.util.Objects;
 public class NinJava extends Application {
 
     private GameState gameState;
-    private GameUI gameUI;
     private GameLogic gameLogic;
-    private ImageView playerView;
 
     public static void main(final String[] args) {
         launch(args);
@@ -29,7 +27,7 @@ public class NinJava extends Application {
         ImageView bgView = new ImageView(bgImage);
         bgView.setFitWidth(GameState.WIDTH);
         bgView.setFitHeight(GameState.HEIGHT);
-        root.getChildren().add(0, bgView);
+        root.getChildren().addFirst(bgView);
     }
 
     private void initEventHandlers(final Scene scene) {
@@ -54,5 +52,41 @@ public class NinJava extends Application {
             }
         });
     }
+    @Override
+    public void start(final Stage primaryStage) {
+        this.gameState = new GameState();
+        Pane root = new Pane();
+        addBackground(root);
+        Canvas canvas = new Canvas(GameState.WIDTH, GameState.HEIGHT);
+        root.getChildren().add(canvas);
 
+        this.gameLogic = new GameLogic(gameState, new GameUI(root, gameState));
+
+        Scene gameScene = new Scene(root, GameState.WIDTH,
+                GameState.HEIGHT, javafx.scene.paint.Color.BLACK);
+        initEventHandlers(gameScene);
+
+        GameMenu gameMenu = new GameMenu(primaryStage, gameScene);
+        Pane menuPane = gameMenu.createMenu();
+        Scene menuScene = new Scene(menuPane, GameState.WIDTH, GameState.HEIGHT);
+
+        primaryStage.setScene(menuScene);
+        primaryStage.setTitle("NinJava");
+        primaryStage.setResizable(false);
+
+        new AnimationTimer() {
+            @Override
+            public void handle(final long currentTime) {
+                GraphicsContext gc = canvas.getGraphicsContext2D();
+                gc.clearRect(0, 0, GameState.WIDTH, GameState.HEIGHT);
+                gameLogic.updateGame(currentTime);
+
+                for (GameObject obj : gameState.getGameObjects()) {
+                    obj.update();
+                    obj.render(gc);
+                }
+            }
+        }.start();
+        primaryStage.show();
+    }
 }
