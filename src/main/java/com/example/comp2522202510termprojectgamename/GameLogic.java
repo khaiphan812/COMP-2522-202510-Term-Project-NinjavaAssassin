@@ -70,7 +70,7 @@ public class GameLogic {
             }
         }
     }
-    private void enemyMovement() {
+    private void controlEnemyMovement() {
         List<Enemy> enemies = new ArrayList<>();
         for (GameObject obj: gameState.getGameObjects()) {
             if (obj instanceof Enemy) {
@@ -96,5 +96,28 @@ public class GameLogic {
             }
         }
     }
+    private void controlBossMovement() {
+        List<Boss> bosses = new ArrayList<>();
+        for (GameObject object: gameState.getGameObjects()) {
+            if (object instanceof Boss) {
+                bosses.add((Boss) object);
+            }
+        }
 
+        for (Boss boss : bosses) {
+            if (boss.getY() + boss.getHeight() / 2 >= GameState.HEIGHT) {
+                boss.setDead(true);
+                gameState.setNumLives(gameState.getNumLives() - 1);
+                gameUI.updateLives(gameState.getNumLives());
+                gameUI.updateScore(gameState.getScore());
+
+                if (gameState.getNumLives() == 0) {
+                    gameUI.showGameOverMessage();
+                    gameState.resetGame();
+                    gameUI.updateScore(0);
+                    gameUI.updateLives(gameState.getNumLives());
+                }
+            }
+        }
+    }
 }
