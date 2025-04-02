@@ -3,19 +3,22 @@ package com.example.comp2522202510termprojectgamename;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import java.util.List;
+import java.util.Objects;
 
 public class Player extends GameObject {
 
     private static final int WIDTH = 55; // Player image width
     private static final int HEIGHT = 55; // Player image height
     private static final double SPEED = 5;
+    private static final Image PL_IMAGE =
+            new Image(Objects.requireNonNull(Player.class.getResourceAsStream("/images/ninja.gif")));
     private boolean moveLeft;
     private boolean moveRight;
-    private boolean dead = false;
+    private boolean moveUp;
+    private boolean moveDown;
+    private final boolean dead = false;
 
-    private static final Image playerImage = new Image(Player.class.getResourceAsStream("/images/ninja.gif"));
-
-    public Player(double xCoordinate, double yCoordinate) {
+    public Player(final double xCoordinate, final double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
 
@@ -40,19 +43,27 @@ public class Player extends GameObject {
     }
 
     @Override
-    public void render(GraphicsContext gc) {
-        gc.drawImage(playerImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
+    public void render(final GraphicsContext gc) {
+        gc.drawImage(PL_IMAGE, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
     }
 
-    public void setMoveLeft(boolean moveLeft) {
+    public void setMoveLeft(final boolean moveLeft) {
         this.moveLeft = moveLeft;
     }
 
-    public void setMoveRight(boolean moveRight) {
+    public void setMoveRight(final boolean moveRight) {
         this.moveRight = moveRight;
     }
 
-    public void shoot(List<GameObject> newObjects) {
+    public void setMoveUp(final boolean moveUp) {
+        this.moveLeft = moveUp;
+    }
+
+    public void setMoveDown(final boolean moveDown) {
+        this.moveRight = moveDown;
+    }
+
+    public void shoot(final List<GameObject> newObjects) {
         Shuriken shuriken = new Shuriken(xCoordinate, yCoordinate - HEIGHT / 2 - Shuriken.HEIGHT);
         newObjects.add(shuriken);
     }
