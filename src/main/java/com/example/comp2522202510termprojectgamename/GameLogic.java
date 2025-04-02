@@ -70,6 +70,16 @@ public class GameLogic {
             }
         }
     }
+
+    private void checkGameOver() {
+        if (gameState.getNumLives() == 0) {
+            gameUI.showGameOverMessage();
+            gameState.resetGame();
+            gameUI.updateScore(0);
+            gameUI.updateLives(gameState.getNumLives());
+        }
+    }
+
     private void controlEnemyMovement() {
         List<Enemy> enemies = new ArrayList<>();
         for (GameObject obj: gameState.getGameObjects()) {
@@ -86,13 +96,7 @@ public class GameLogic {
                 gameUI.updateLives(gameState.getNumLives());
                 gameUI.updateScore(gameState.getScore());
 
-                if (gameState.getNumLives() == 0) {
-                    Enemy.SPEED = 2;
-                    gameUI.showGameOverMessage();
-                    gameState.resetGame();
-                    gameUI.updateScore(0);
-                    gameUI.updateLives(gameState.getNumLives());
-                }
+                checkGameOver();
             }
         }
     }
@@ -111,12 +115,7 @@ public class GameLogic {
                 gameUI.updateLives(gameState.getNumLives());
                 gameUI.updateScore(gameState.getScore());
 
-                if (gameState.getNumLives() == 0) {
-                    gameUI.showGameOverMessage();
-                    gameState.resetGame();
-                    gameUI.updateScore(0);
-                    gameUI.updateLives(gameState.getNumLives());
-                }
+                checkGameOver();
             }
         }
     }
@@ -139,10 +138,8 @@ public class GameLogic {
         controlEnemyMovement();
         controlBossMovement();
 
-
         gameState.getGameObjects().addAll(gameState.getNewObjects());
         gameState.getNewObjects().clear();
-
 
         Iterator<GameObject> iterator = gameState.getGameObjects().iterator();
         while (iterator.hasNext()) {
