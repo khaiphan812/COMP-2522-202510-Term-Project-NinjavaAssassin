@@ -48,4 +48,23 @@ public class Enemy extends GameObject {
     public boolean isDead() {
         return dead;
     }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Enemy enemy = (Enemy) object;
+        return dead == enemy.dead;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(dead);
+    }
+
+    @Override
+    public String toString() {
+        return "Enemy{" + "dead=" + dead + '}';
+    }
 }
