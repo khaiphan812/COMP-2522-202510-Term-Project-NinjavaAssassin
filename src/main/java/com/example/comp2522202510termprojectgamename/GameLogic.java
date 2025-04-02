@@ -120,4 +120,36 @@ public class GameLogic {
             }
         }
     }
+    public void updateGame(long currentTime) {
+        if (gameState.isReset()) {
+            gameState.setReset(false);
+        }
+
+        if (currentTime - lastEnemySpawned > 1_000_000_000) {
+            spawnEnemy();
+            lastEnemySpawned = currentTime;
+        }
+
+        if (currentTime - lastPowerUpSpawned > 10_000_000_000L) {
+            spawnBoss();
+            lastPowerUpSpawned = currentTime;
+        }
+
+        checkCollisions();
+        controlEnemyMovement();
+        controlBossMovement();
+
+
+        gameState.getGameObjects().addAll(gameState.getNewObjects());
+        gameState.getNewObjects().clear();
+
+
+        Iterator<GameObject> iterator = gameState.getGameObjects().iterator();
+        while (iterator.hasNext()) {
+            GameObject obj = iterator.next();
+            if (obj.isDead()) {
+                iterator.remove();
+            }
+        }
+    }
 }
