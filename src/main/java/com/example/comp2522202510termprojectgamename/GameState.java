@@ -14,7 +14,7 @@ public class GameState {
     private final List<GameObject> gameObjects = new ArrayList<>();
     private final List<GameObject> newObjects = new ArrayList<>();
 
-    private final Player player = new Player(WIDTH / 2, HEIGHT - 40);
+    private final Player player = new Player((double) WIDTH / 2, HEIGHT - 40);
 
     public GameState() {
         gameObjects.add(player);
@@ -59,7 +59,7 @@ public class GameState {
         gameObjects.clear();
         numLives = DEFAULT_LIVES;
         score = 0;
-        Enemy.SPEED = 2;
+        Enemy.speed = 2;
         gameObjects.add(player);
         reset = true;
     }

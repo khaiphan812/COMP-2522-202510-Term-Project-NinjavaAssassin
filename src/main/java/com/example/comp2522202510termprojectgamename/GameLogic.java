@@ -63,7 +63,7 @@ public class GameLogic {
                     gameUI.updateScore(gameState.getScore());
 
                     if (gameState.getScore() % MULTI_OF_100 == 0) {
-                        Enemy.SPEED += 2;
+                        Enemy.speed += 2;
                     }
                 }
             }
@@ -117,7 +117,7 @@ public class GameLogic {
         for (Enemy enemy : enemies) {
             if (enemy.getY() + enemy.getHeight() / 2 >= GameState.HEIGHT) {
                 enemy.setDead(true);
-                Enemy.SPEED += SPEED_INCREASE_RATE;
+                Enemy.speed += SPEED_INCREASE_RATE;
                 gameState.setNumLives(gameState.getNumLives() - 1);
                 gameUI.updateLives(gameState.getNumLives());
                 gameUI.updateScore(gameState.getScore());
@@ -145,7 +145,7 @@ public class GameLogic {
             }
         }
     }
-    public void updateGame(long currentTime) {
+    public void updateGame(final long currentTime) {
         if (gameState.isReset()) {
             gameState.setReset(false);
         }
