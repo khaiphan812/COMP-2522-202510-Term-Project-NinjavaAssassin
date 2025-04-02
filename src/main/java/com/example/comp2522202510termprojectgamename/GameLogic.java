@@ -109,9 +109,9 @@ public class GameLogic {
 
     private void controlEnemyMovement() {
         List<Enemy> enemies = new ArrayList<>();
-        for (GameObject obj: gameState.getGameObjects()) {
-            if (obj instanceof Enemy) {
-                enemies.add((Enemy) obj);
+        for (GameObject object: gameState.getGameObjects()) {
+            if (object instanceof Enemy) {
+                enemies.add((Enemy) object);
             }
         }
 
