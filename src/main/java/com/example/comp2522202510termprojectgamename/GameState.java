@@ -2,11 +2,12 @@ package com.example.comp2522202510termprojectgamename;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GameState {
-    public static final int WIDTH = 400;
-    public static final int HEIGHT = 800;
-    public static final int DEFAULT_LIVES = 10;
+    protected static final int WIDTH = 400;
+    protected static final int HEIGHT = 800;
+    protected static final int DEFAULT_LIVES = 10;
     private int numLives;
     private int score = 0;
     private boolean reset = false;
@@ -62,5 +63,29 @@ public class GameState {
         Enemy.speed = 2;
         gameObjects.add(player);
         reset = true;
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        GameState gameState = (GameState) object;
+        return numLives == gameState.numLives && score == gameState.score
+                && reset == gameState.reset && Objects.equals(gameObjects, gameState.gameObjects)
+                && Objects.equals(newObjects, gameState.newObjects)
+                && Objects.equals(player, gameState.player);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numLives, score, reset, gameObjects, newObjects, player);
+    }
+
+    @Override
+    public String toString() {
+        return "GameState{" + "numLives=" + numLives + ", score=" + score
+                + ", reset=" + reset + ", gameObjects=" + gameObjects
+                + ", newObjects=" + newObjects + ", player=" + player + '}';
     }
 }
