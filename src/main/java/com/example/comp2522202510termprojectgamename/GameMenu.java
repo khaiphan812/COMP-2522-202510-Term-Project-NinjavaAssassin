@@ -16,14 +16,14 @@ public class GameMenu {
     private final Stage primaryStage;
     private final Scene gameScene;
 
-    public GameMenu(Stage primaryStage, Scene gameScene) {
+    public GameMenu(final Stage primaryStage, final Scene gameScene) {
         this.primaryStage = primaryStage;
         this.gameScene = gameScene;
     }
 
     public Pane createMenu() {
         Pane menuPane = new Pane();
-        menuPane.setStyle("-fx-background-color: rgba(19,19,19,0.91);");
+        menuPane.setStyle("-fx-background-color: rgba(34,15,15,0.91);");
 
         Text welcomeText = new Text("Welcome to NinJava!");
         welcomeText.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 30));
@@ -49,12 +49,13 @@ public class GameMenu {
         return menuPane;
     }
 
-    private Button createButton(String text, double y) {
+    private Button createButton(final String text, final double y) {
         Button button = new Button(text);
         button.setLayoutX((GameState.WIDTH - button.getPrefWidth()) / 2);
         button.setLayoutY(y);
         button.setTextFill(javafx.scene.paint.Color.WHITE);
-        button.setStyle("-fx-background-color: rgba(21,10,10,0.44); -fx-font-size: 20; -fx-font-weight: bold; -fx-padding: 10 20;");
+        button.setStyle("-fx-background-color: rgba(21,10,10,0.44);"
+                + "-fx-font-size: 20; -fx-font-weight: bold; -fx-padding: 10 20;");
         button.setOnMouseEntered(event -> {
             button.setTextFill(javafx.scene.paint.Color.YELLOW);
             button.setEffect(new Glow());
@@ -70,12 +71,12 @@ public class GameMenu {
         Alert instructionsAlert = new Alert(AlertType.INFORMATION);
         instructionsAlert.setTitle("Instructions");
         instructionsAlert.setHeaderText("NinJava Guide");
-        instructionsAlert.setContentText("Use the Left and Right arrow keys to move your Ninja.\n" +
-                "Press SPACE to throw shurikens at and destroy the enemies.\n" +
-                "Enemies move faster as you reach higher score.\n" +
-                "Killing special enemies earn you more points\n" +
-                "If an enemy reaches the bottom of the screen, you lose a life.\n" +
-                "The game resets if you lose all lives.");
+        instructionsAlert.setContentText("Press WASD or arrow keys to move your Ninja.\n"
+                + "Press SPACE to throw shurikens and destroy the enemies.\n"
+                + "Enemies move faster as you reach a higher score.\n"
+                + "Killing special bosses earn you more points.\n"
+                + "If an enemy reaches the bottom or touches you, you'll lose a life.\n"
+                + "The game resets if you lose all lives.");
         instructionsAlert.showAndWait();
     }
 
