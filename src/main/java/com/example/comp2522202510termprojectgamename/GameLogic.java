@@ -30,4 +30,19 @@ public class GameLogic {
         gameState.getGameObjects().add(boss);
     }
 
+    private void checkCollisions() {
+        List<Shuriken> shurikens = new ArrayList<>();
+        List<Enemy> enemies = new ArrayList<>();
+        List<Boss> bosses = new ArrayList<>();
+
+        for (GameObject object : gameState.getGameObjects()) {
+            if (object instanceof Shuriken) {
+                shurikens.add((Shuriken) object);
+            } else if (object instanceof Enemy) {
+                enemies.add((Enemy) object);
+            } else if (object instanceof Boss) {
+                bosses.add((Boss) object);
+            }
+        }
+
 }
