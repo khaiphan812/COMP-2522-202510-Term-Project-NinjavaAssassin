@@ -88,7 +88,12 @@ public class NinJava extends Application {
         }.start();
         primaryStage.show();
     }
-
+    /**
+     * Returns true if the argument is equal to this NinJava, else false.
+     *
+     * @param object an Object
+     * @return true if the argument is equal to this NinJava, else false
+     */
     @Override
     public boolean equals(final Object object) {
         if (object == null || getClass() != object.getClass()) return false;
@@ -97,11 +102,21 @@ public class NinJava extends Application {
                 && Objects.equals(gameLogic, ninJava.gameLogic);
     }
 
+    /**
+     * Returns a hashCode for this NinJava.
+     *
+     * @return hashCode as an int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(gameState, gameLogic);
     }
 
+    /**
+     * Returns a string representation of the NinJava.
+     *
+     * @return a string containing NinJava's contents
+     */
     @Override
     public String toString() {
         return "NinJava{" + "gameState=" + gameState
