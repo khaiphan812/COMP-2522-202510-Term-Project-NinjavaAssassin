@@ -80,6 +80,12 @@ public class Player extends GameObject {
         return false;
     }
 
+    /**
+     * Returns true if the argument is equal to this player, else false.
+     *
+     * @param object an Object
+     * @return true if the argument is equal to this player, else false
+     */
     @Override
     public boolean equals(final Object object) {
         if (object == null || getClass() != object.getClass()) {
@@ -92,11 +98,21 @@ public class Player extends GameObject {
         return moveLeft == player.moveLeft && moveRight == player.moveRight && moveUp == player.moveUp && moveDown == player.moveDown;
     }
 
+    /**
+     * Returns a hashCode for this player.
+     *
+     * @return hashCode as an int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), moveLeft, moveRight, moveUp, moveDown);
     }
 
+    /**
+     * Returns a string representation of the player.
+     *
+     * @return a string containing player's contents
+     */
     @Override
     public String toString() {
         return "Player{" + "moveLeft=" + moveLeft
