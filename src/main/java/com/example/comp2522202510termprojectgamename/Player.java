@@ -39,6 +39,12 @@ public class Player extends GameObject {
         if (moveRight && xCoordinate + (double) WIDTH / 2 <= GameState.WIDTH) {
             xCoordinate += SPEED;
         }
+        if (moveUp && yCoordinate - SPEED > 0) {
+            yCoordinate -= SPEED;
+        }
+        if (moveDown && yCoordinate + HEIGHT <= GameState.HEIGHT) {
+            yCoordinate += SPEED;
+        }
     }
 
     @Override
