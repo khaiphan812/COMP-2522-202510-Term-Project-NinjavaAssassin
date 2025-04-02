@@ -8,6 +8,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -67,5 +68,28 @@ public class GameUI {
                 },
                 DELAY
         );
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        GameUI gameUI = (GameUI) object;
+        return Objects.equals(scoreLabel, gameUI.scoreLabel)
+                && Objects.equals(lifeLabel, gameUI.lifeLabel)
+                && Objects.equals(root, gameUI.root)
+                && Objects.equals(gameState, gameUI.gameState);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(scoreLabel, lifeLabel, root, gameState);
+    }
+
+    @Override
+    public String toString() {
+        return "GameUI{" + "scoreLabel=" + scoreLabel + ", lifeLabel=" + lifeLabel
+                + ", root=" + root + ", gameState=" + gameState + '}';
     }
 }
