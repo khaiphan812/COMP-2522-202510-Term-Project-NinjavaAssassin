@@ -70,5 +70,31 @@ public class GameLogic {
             }
         }
     }
+    private void enemyMovement() {
+        List<Enemy> enemies = new ArrayList<>();
+        for (GameObject obj: gameState.getGameObjects()) {
+            if (obj instanceof Enemy) {
+                enemies.add((Enemy) obj);
+            }
+        }
+
+        for (Enemy enemy : enemies) {
+            if (enemy.getY() + enemy.getHeight() / 2 >= GameState.HEIGHT) {
+                enemy.setDead(true);
+                Enemy.SPEED += 0.4;
+                gameState.setNumLives(gameState.getNumLives() - 1);
+                gameUI.updateLives(gameState.getNumLives());
+                gameUI.updateScore(gameState.getScore());
+
+                if (gameState.getNumLives() == 0) {
+                    Enemy.SPEED = 2;
+                    gameUI.showGameOverMessage();
+                    gameState.resetGame();
+                    gameUI.updateScore(0);
+                    gameUI.updateLives(gameState.getNumLives());
+                }
+            }
+        }
+    }
 
 }
