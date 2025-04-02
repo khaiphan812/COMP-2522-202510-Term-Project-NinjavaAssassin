@@ -79,4 +79,29 @@ public class Player extends GameObject {
     public boolean isDead() {
         return false;
     }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        if (!super.equals(object)) {
+            return false;
+        }
+        Player player = (Player) object;
+        return moveLeft == player.moveLeft && moveRight == player.moveRight && moveUp == player.moveUp && moveDown == player.moveDown;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), moveLeft, moveRight, moveUp, moveDown);
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "moveLeft=" + moveLeft
+                + ", moveRight=" + moveRight
+                + ", moveUp=" + moveUp
+                + ", moveDown=" + moveDown + '}';
+    }
 }
