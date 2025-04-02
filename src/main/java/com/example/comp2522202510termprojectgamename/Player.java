@@ -10,13 +10,12 @@ public class Player extends GameObject {
     private static final int WIDTH = 55; // Player image width
     private static final int HEIGHT = 55; // Player image height
     private static final double SPEED = 5;
-    private static final Image PL_IMAGE =
-            new Image(Objects.requireNonNull(Player.class.getResourceAsStream("/images/ninja.gif")));
+    private static final Image PL_IMAGE = new Image(Objects.requireNonNull(Player.class.
+                    getResourceAsStream("/images/ninja.gif")));
     private boolean moveLeft;
     private boolean moveRight;
     private boolean moveUp;
     private boolean moveDown;
-    private final boolean dead = false;
 
     public Player(final double xCoordinate, final double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
@@ -37,14 +36,14 @@ public class Player extends GameObject {
         if (moveLeft && xCoordinate - SPEED > 0) {
             xCoordinate -= SPEED;
         }
-        if (moveRight && xCoordinate + WIDTH <= GameState.WIDTH) {
+        if (moveRight && xCoordinate + (double) WIDTH / 2 <= GameState.WIDTH) {
             xCoordinate += SPEED;
         }
     }
 
     @Override
     public void render(final GraphicsContext gc) {
-        gc.drawImage(PL_IMAGE, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
+        gc.drawImage(PL_IMAGE, xCoordinate - (double) WIDTH / 2, yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
 
     public void setMoveLeft(final boolean moveLeft) {
@@ -56,20 +55,20 @@ public class Player extends GameObject {
     }
 
     public void setMoveUp(final boolean moveUp) {
-        this.moveLeft = moveUp;
+        this.moveUp = moveUp;
     }
 
     public void setMoveDown(final boolean moveDown) {
-        this.moveRight = moveDown;
+        this.moveDown = moveDown;
     }
 
     public void shoot(final List<GameObject> newObjects) {
-        Shuriken shuriken = new Shuriken(xCoordinate, yCoordinate - HEIGHT / 2 - Shuriken.HEIGHT);
+        Shuriken shuriken = new Shuriken(xCoordinate, yCoordinate - (double) HEIGHT / 2 - Shuriken.HEIGHT);
         newObjects.add(shuriken);
     }
 
     @Override
     public boolean isDead() {
-        return dead;
+        return false;
     }
 }
