@@ -2,7 +2,6 @@ package com.example.comp2522202510termprojectgamename;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-
 import java.util.Objects;
 
 public class Enemy extends GameObject {
