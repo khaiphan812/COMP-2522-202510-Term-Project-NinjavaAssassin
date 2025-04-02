@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class GameState {
     public static final int WIDTH = 400;
     public static final int HEIGHT = 800;
-
-    private int numLives = 10;
+    public static final int DEFAULT_LIVES = 10;
+    private int numLives;
     private int score = 0;
     private boolean reset = false;
 
@@ -24,14 +24,14 @@ public class GameState {
         return numLives;
     }
 
-    public void setNumLives(int numLives) {
+    public void setNumLives(final int numLives) {
         this.numLives = numLives;
     }
 
     public int getScore() {
         return score;
     }
-    public void setScore(int score) {
+    public void setScore(final int score) {
         this.score = score;
     }
 
@@ -39,7 +39,7 @@ public class GameState {
         return reset;
     }
 
-    public void setReset(boolean reset) {
+    public void setReset(final boolean reset) {
         this.reset = reset;
     }
 
@@ -57,7 +57,7 @@ public class GameState {
 
     public void resetGame() {
         gameObjects.clear();
-        numLives = 10;
+        numLives = DEFAULT_LIVES;
         score = 0;
         Enemy.SPEED = 2;
         gameObjects.add(player);
