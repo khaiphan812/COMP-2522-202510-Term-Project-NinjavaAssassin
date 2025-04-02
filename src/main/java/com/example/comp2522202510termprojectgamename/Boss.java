@@ -100,6 +100,12 @@ public class Boss extends GameObject {
         this.isDead = dead;
     }
 
+    /**
+     * Returns true if the argument is equal to this boss, else false.
+     *
+     * @param object an Object
+     * @return true if the argument is equal to this boss, else false
+     */
     @Override
     public boolean equals(final Object object) {
         if (object == null || getClass() != object.getClass()) {
@@ -109,11 +115,21 @@ public class Boss extends GameObject {
         return hitCount == boss.hitCount && isDead == boss.isDead;
     }
 
+    /**
+     * Returns a hashCode for this boss.
+     *
+     * @return hashCode as an int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(hitCount, isDead);
     }
 
+    /**
+     * Returns a string representation of the boss.
+     *
+     * @return a string containing boss's contents
+     */
     @Override
     public String toString() {
         return "Boss{" + "hitCount=" + hitCount + ", isDead=" + isDead + '}';
