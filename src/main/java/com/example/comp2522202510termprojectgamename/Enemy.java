@@ -48,6 +48,12 @@ public class Enemy extends GameObject {
         return dead;
     }
 
+    /**
+     * Returns true if the argument is equal to this enemy, else false.
+     *
+     * @param object an Object
+     * @return true if the argument is equal to this enemy, else false
+     */
     @Override
     public boolean equals(final Object object) {
         if (object == null || getClass() != object.getClass()) {
@@ -57,11 +63,21 @@ public class Enemy extends GameObject {
         return dead == enemy.dead;
     }
 
+    /**
+     * Returns a hashCode for this enemy.
+     *
+     * @return hashCode as an int
+     */
     @Override
     public int hashCode() {
         return Objects.hashCode(dead);
     }
 
+    /**
+     * Returns a string representation of the enemy.
+     *
+     * @return a string containing enemy's contents
+     */
     @Override
     public String toString() {
         return "Enemy{" + "dead=" + dead + '}';
