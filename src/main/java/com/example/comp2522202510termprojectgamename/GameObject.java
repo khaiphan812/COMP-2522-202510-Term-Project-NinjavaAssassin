@@ -37,6 +37,12 @@ public abstract class GameObject {
 
     public abstract double getHeight();
 
+    /**
+     * Returns true if the argument is equal to this game object, else false.
+     *
+     * @param object an Object
+     * @return true if the argument is equal to this game object, else false
+     */
     @Override
     public boolean equals(final Object object) {
         if (object == null || getClass() != object.getClass()) {
@@ -49,11 +55,21 @@ public abstract class GameObject {
                 && Double.compare(height, that.height) == 0;
     }
 
+    /**
+     * Returns a hashCode for this game object.
+     *
+     * @return hashCode as an int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(xCoordinate, yCoordinate, width, height);
     }
 
+    /**
+     * Returns a string representation of the game object.
+     *
+     * @return a string containing game object's contents
+     */
     @Override
     public String toString() {
         return "GameObject{" + "xCoordinate=" + xCoordinate + ", yCoordinate=" + yCoordinate
