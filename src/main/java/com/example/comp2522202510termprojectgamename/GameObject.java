@@ -25,9 +25,6 @@ public abstract class GameObject {
 
     public abstract boolean isDead();
 
-    public double getX() {
-        return xCoordinate; }
-
     public double getY() {
         return yCoordinate; }
 
