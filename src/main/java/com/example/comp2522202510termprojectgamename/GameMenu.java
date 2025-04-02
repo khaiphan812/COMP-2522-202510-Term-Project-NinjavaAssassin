@@ -89,6 +89,24 @@ public class GameMenu {
         instructionsAlert.showAndWait();
     }
 
+    /**
+     * Returns true if the argument is equal to this game menu, else false.
+     *
+     * @param object an Object
+     * @return true if the argument is equal to this game menu, else false
+     */
+
+    /**
+     * Returns a hashCode for this game menu.
+     *
+     * @return hashCode as an int
+     */
+
+    /**
+     * Returns a string representation of the game menu.
+     *
+     * @return a string containing game menu's contents
+     */
     @Override
     public boolean equals(final Object object) {
         if (object == null || getClass() != object.getClass()) {
@@ -99,11 +117,21 @@ public class GameMenu {
                 && Objects.equals(gameScene, gameMenu.gameScene);
     }
 
+    /**
+     * Returns a hashCode for this game menu.
+     *
+     * @return hashCode as an int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(primaryStage, gameScene);
     }
 
+    /**
+     * Returns a string representation of the game menu.
+     *
+     * @return a string containing game menu's contents
+     */
     @Override
     public String toString() {
         return "GameMenu{" + "primaryStage=" + primaryStage
