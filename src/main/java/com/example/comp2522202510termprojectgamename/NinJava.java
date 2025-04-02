@@ -81,12 +81,31 @@ public class NinJava extends Application {
                 gc.clearRect(0, 0, GameState.WIDTH, GameState.HEIGHT);
                 gameLogic.updateGame(currentTime);
 
-                for (GameObject obj : gameState.getGameObjects()) {
-                    obj.update();
-                    obj.render(gc);
+                for (GameObject object : gameState.getGameObjects()) {
+                    object.update();
+                    object.render(gc);
                 }
             }
         }.start();
         primaryStage.show();
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+        NinJava ninJava = (NinJava) object;
+        return Objects.equals(gameState, ninJava.gameState)
+                && Objects.equals(gameLogic, ninJava.gameLogic);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gameState, gameLogic);
+    }
+
+    @Override
+    public String toString() {
+        return "NinJava{" + "gameState=" + gameState
+                + ", gameLogic=" + gameLogic + '}';
     }
 }
