@@ -12,9 +12,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameUI {
-    public static final int DELAY = 2500;
-    public static final int SETTING_1 = 10;
-    public static final int SETTING_2 = 40;
+    private static final int DELAY = 2500;
+    private static final int SETTING_1 = 10;
+    private static final int SETTING_2 = 40;
     private final Label scoreLabel;
     private final Label lifeLabel;
     private final Pane root;

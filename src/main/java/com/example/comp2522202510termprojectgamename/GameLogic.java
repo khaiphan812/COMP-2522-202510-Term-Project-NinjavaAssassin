@@ -6,12 +6,18 @@ import java.util.List;
 import java.util.Random;
 
 public class GameLogic {
+    private static final int SCORE_PER_ENEMY = 10;
+    private static final int SCORE_PER_BOSS = 50;
+    private static final int MULTI_OF_100 = 100;
+    private static final double SPEED_INCREASE_RATE = 0.4;
+    private static final long NANO_SECONDS_1 = 1_000_000_000;
+    private static final long NANO_SECONDS_2 = 10_000_000_000L;
     private final GameState gameState;
     private final GameUI gameUI;
     private long lastEnemySpawned = 0;
     private long lastBossSpawned = 0;
 
-    public GameLogic(GameState gameState, GameUI gameUI) {
+    public GameLogic(final GameState gameState, final GameUI gameUI) {
         this.gameState = gameState;
         this.gameUI = gameUI;
     }
@@ -50,10 +56,10 @@ public class GameLogic {
                 if (shuriken.getBounds().intersects(enemy.getBounds())) {
                     shuriken.setDead(true);
                     enemy.setDead(true);
-                    gameState.setScore(gameState.getScore() + 10);
+                    gameState.setScore(gameState.getScore() + SCORE_PER_ENEMY);
                     gameUI.updateScore(gameState.getScore());
 
-                    if (gameState.getScore() % 100 == 0) {
+                    if (gameState.getScore() % MULTI_OF_100 == 0) {
                         Enemy.SPEED += 2;
                     }
                 }
@@ -64,7 +70,7 @@ public class GameLogic {
                     shuriken.setDead(true);
                     boss.takeHit();
                     if (boss.isDead()) {
-                        gameState.setScore(gameState.getScore() + 50);
+                        gameState.setScore(gameState.getScore() + SCORE_PER_BOSS);
                         gameUI.updateScore(gameState.getScore());
                     }
                 }
@@ -108,7 +114,7 @@ public class GameLogic {
         for (Enemy enemy : enemies) {
             if (enemy.getY() + enemy.getHeight() / 2 >= GameState.HEIGHT) {
                 enemy.setDead(true);
-                Enemy.SPEED += 0.4;
+                Enemy.SPEED += SPEED_INCREASE_RATE;
                 gameState.setNumLives(gameState.getNumLives() - 1);
                 gameUI.updateLives(gameState.getNumLives());
                 gameUI.updateScore(gameState.getScore());
@@ -141,12 +147,12 @@ public class GameLogic {
             gameState.setReset(false);
         }
 
-        if (currentTime - lastEnemySpawned > 1_000_000_000) {
+        if (currentTime - lastEnemySpawned > NANO_SECONDS_1) {
             spawnEnemy();
             lastEnemySpawned = currentTime;
         }
 
-        if (currentTime - lastBossSpawned > 10_000_000_000L) {
+        if (currentTime - lastBossSpawned > NANO_SECONDS_2) {
             spawnBoss();
             lastBossSpawned = currentTime;
         }
