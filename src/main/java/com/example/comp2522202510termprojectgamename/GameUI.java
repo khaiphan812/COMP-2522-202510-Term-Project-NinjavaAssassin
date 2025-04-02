@@ -69,6 +69,12 @@ public class GameUI {
         );
     }
 
+    /**
+     * Returns true if the argument is equal to this game UI, else false.
+     *
+     * @param object an Object
+     * @return true if the argument is equal to this game UI, else false
+     */
     @Override
     public boolean equals(final Object object) {
         if (object == null || getClass() != object.getClass()) {
@@ -81,11 +87,21 @@ public class GameUI {
                 && Objects.equals(gameState, gameUI.gameState);
     }
 
+    /**
+     * Returns a hashCode for this game UI.
+     *
+     * @return hashCode as an int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(scoreLabel, lifeLabel, root, gameState);
     }
 
+    /**
+     * Returns a string representation of the game UI.
+     *
+     * @return a string containing game UI's contents
+     */
     @Override
     public String toString() {
         return "GameUI{" + "scoreLabel=" + scoreLabel + ", lifeLabel=" + lifeLabel
