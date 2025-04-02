@@ -13,6 +13,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class GameMenu {
+    private static final int WELCOME_SIZE = 30;
+    private static final int START_SIZE = 200;
+    private static final int INSTRUCTIONS_SIZE = 300;
+    private static final int QUIT_SIZE = 400;
+    private static final int LAYOUT_100 = 100;
+    private static final int LAYOUT_200 = 200;
+    private static final int VBOX = 20;
     private final Stage primaryStage;
     private final Scene gameScene;
 
@@ -26,23 +33,24 @@ public class GameMenu {
         menuPane.setStyle("-fx-background-color: rgba(34,15,15,0.91);");
 
         Text welcomeText = new Text("Welcome to NinJava!");
-        welcomeText.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 30));
+        welcomeText.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, WELCOME_SIZE));
         welcomeText.setFill(javafx.scene.paint.Color.WHITE);
         welcomeText.setX((GameState.WIDTH - welcomeText.getLayoutBounds().getWidth()) / 2);
-        welcomeText.setY(100);
+        welcomeText.setY(LAYOUT_100);
 
-        Button startButton = createButton("START", 200);
+        Button startButton = createButton("START", START_SIZE);
         startButton.setOnAction(event -> primaryStage.setScene(gameScene));
 
-        Button instructionButton = createButton("Instructions", 300);
+        Button instructionButton = createButton("Instructions", INSTRUCTIONS_SIZE);
         instructionButton.setOnAction(event -> showInstructions());
 
-        Button quitButton = createButton("Quit", 400);
+        Button quitButton = createButton("Quit", QUIT_SIZE);
         quitButton.setOnAction(event -> System.exit(0));
 
-        VBox buttonsContainer = new VBox(20);
-        buttonsContainer.setLayoutX((GameState.WIDTH - startButton.getPrefWidth()) / 2 - 100);
-        buttonsContainer.setLayoutY(200);
+        VBox buttonsContainer = new VBox(VBOX);
+        buttonsContainer.setLayoutX((GameState.WIDTH - startButton.getPrefWidth()) / 2
+                - LAYOUT_100);
+        buttonsContainer.setLayoutY(LAYOUT_200);
         buttonsContainer.getChildren().addAll(startButton, instructionButton, quitButton);
         menuPane.getChildren().addAll(welcomeText, buttonsContainer);
 
