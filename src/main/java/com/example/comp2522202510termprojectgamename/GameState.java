@@ -59,6 +59,7 @@ public class GameState {
         gameObjects.clear();
         numLives = 10;
         score = 0;
+        Enemy.SPEED = 2;
         gameObjects.add(player);
         reset = true;
     }
