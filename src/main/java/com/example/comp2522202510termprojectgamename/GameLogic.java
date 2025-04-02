@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Random;
 
 public class GameLogic {
+    private static final int COORDINATE_ELO_1 = 50;
+    private static final int COORDINATE_ELO_2 = 25;
+    private static final int COORDINATE_ELO_3 = -40;
     private static final int SCORE_PER_ENEMY = 10;
     private static final int SCORE_PER_BOSS = 50;
     private static final int MULTI_OF_100 = 100;
@@ -24,8 +27,9 @@ public class GameLogic {
 
     private void spawnEnemy() {
         Random random = new Random();
-        int randomCoordinate = random.nextInt(GameState.WIDTH - 50) + 25;
-        Enemy enemy = new Enemy(randomCoordinate, -40);
+        int randomCoordinate = random.nextInt(GameState.WIDTH - COORDINATE_ELO_1)
+                + COORDINATE_ELO_2;
+        Enemy enemy = new Enemy(randomCoordinate, COORDINATE_ELO_3);
         gameState.getGameObjects().add(enemy);
     }
 
