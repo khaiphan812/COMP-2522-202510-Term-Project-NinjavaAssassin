@@ -62,7 +62,7 @@ public class GameUI {
                                 root.getChildren().remove(lostMessage));
                     }
                 },
-                2000
+                2500
         );
     }
 }
