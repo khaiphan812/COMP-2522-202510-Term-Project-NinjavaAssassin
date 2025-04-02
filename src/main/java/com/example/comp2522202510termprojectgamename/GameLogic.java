@@ -58,4 +58,17 @@ public class GameLogic {
                 }
             }
 
+            for (Boss boss : bosses) {
+                if (shuriken.getBounds().intersects(boss.getBounds())) {
+                    shuriken.setDead(true);
+                    boss.takeHit();
+                    if (boss.isDead()) {
+                        gameState.setScore(gameState.getScore() + 50);
+                        gameUI.updateScore(gameState.getScore());
+                    }
+                }
+            }
+        }
+    }
+
 }
