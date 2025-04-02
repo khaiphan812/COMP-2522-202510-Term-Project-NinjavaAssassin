@@ -170,6 +170,12 @@ public class GameLogic {
         gameState.getGameObjects().removeIf(GameObject::isDead);
     }
 
+    /**
+     * Returns true if the argument is equal to this game logic, else false.
+     *
+     * @param object an Object
+     * @return true if the argument is equal to this game logic, else false
+     */
     @Override
     public boolean equals(final Object object) {
         if (object == null || getClass() != object.getClass()) {
@@ -182,11 +188,21 @@ public class GameLogic {
                 && Objects.equals(gameUI, gameLogic.gameUI);
     }
 
+    /**
+     * Returns a hashCode for this game logic.
+     *
+     * @return hashCode as an int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(gameState, gameUI, lastEnemySpawned, lastBossSpawned);
     }
 
+    /**
+     * Returns a string representation of the game logic.
+     *
+     * @return a string containing game logic's contents
+     */
     @Override
     public String toString() {
         return "GameLogic{" + "gameState=" + gameState
