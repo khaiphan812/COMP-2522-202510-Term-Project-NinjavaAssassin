@@ -2,6 +2,7 @@ package com.example.comp2522202510termprojectgamename;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class GameLogic {
@@ -167,5 +168,30 @@ public class GameLogic {
         gameState.getGameObjects().addAll(gameState.getNewObjects());
         gameState.getNewObjects().clear();
         gameState.getGameObjects().removeIf(GameObject::isDead);
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        GameLogic gameLogic = (GameLogic) object;
+        return lastEnemySpawned == gameLogic.lastEnemySpawned
+                && lastBossSpawned == gameLogic.lastBossSpawned
+                && Objects.equals(gameState, gameLogic.gameState)
+                && Objects.equals(gameUI, gameLogic.gameUI);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gameState, gameUI, lastEnemySpawned, lastBossSpawned);
+    }
+
+    @Override
+    public String toString() {
+        return "GameLogic{" + "gameState=" + gameState
+                + ", gameUI=" + gameUI
+                + ", lastEnemySpawned=" + lastEnemySpawned
+                + ", lastBossSpawned=" + lastBossSpawned + '}';
     }
 }
