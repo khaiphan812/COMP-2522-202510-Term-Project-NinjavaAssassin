@@ -65,6 +65,12 @@ public class GameState {
         reset = true;
     }
 
+    /**
+     * Returns true if the argument is equal to this game state, else false.
+     *
+     * @param object an Object
+     * @return true if the argument is equal to this game state, else false
+     */
     @Override
     public boolean equals(final Object object) {
         if (object == null || getClass() != object.getClass()) {
@@ -77,11 +83,21 @@ public class GameState {
                 && Objects.equals(player, gameState.player);
     }
 
+    /**
+     * Returns a hashCode for this game state.
+     *
+     * @return hashCode as an int
+     */
     @Override
     public int hashCode() {
         return Objects.hash(numLives, score, reset, gameObjects, newObjects, player);
     }
 
+    /**
+     * Returns a string representation of the game state.
+     *
+     * @return a string containing game state's contents
+     */
     @Override
     public String toString() {
         return "GameState{" + "numLives=" + numLives + ", score=" + score
