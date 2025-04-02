@@ -157,13 +157,6 @@ public class GameLogic {
 
         gameState.getGameObjects().addAll(gameState.getNewObjects());
         gameState.getNewObjects().clear();
-
-        Iterator<GameObject> iterator = gameState.getGameObjects().iterator();
-        while (iterator.hasNext()) {
-            GameObject obj = iterator.next();
-            if (obj.isDead()) {
-                iterator.remove();
-            }
-        }
+        gameState.getGameObjects().removeIf(GameObject::isDead);
     }
 }
