@@ -9,7 +9,7 @@ public class GameLogic {
     private final GameState gameState;
     private final GameUI gameUI;
     private long lastEnemySpawned = 0;
-    private long lastPowerUpSpawned = 0;
+    private long lastBossSpawned = 0;
 
     public GameLogic(GameState gameState, GameUI gameUI) {
         this.gameState = gameState;
@@ -34,6 +34,7 @@ public class GameLogic {
         List<Shuriken> shurikens = new ArrayList<>();
         List<Enemy> enemies = new ArrayList<>();
         List<Boss> bosses = new ArrayList<>();
+        Player player = gameState.getPlayer();
 
         for (GameObject object : gameState.getGameObjects()) {
             if (object instanceof Shuriken) {
@@ -69,6 +70,22 @@ public class GameLogic {
                 }
             }
         }
+        for (Enemy enemy : enemies) {
+            if (player.getBounds().intersects(enemy.getBounds())) {
+                enemy.setDead(true);
+                gameState.setNumLives(gameState.getNumLives() - 1);
+                gameUI.updateLives(gameState.getNumLives());
+            }
+        }
+
+        for (Boss boss : bosses) {
+            if (player.getBounds().intersects(boss.getBounds())) {
+                boss.setDead(true);
+                gameState.setNumLives(gameState.getNumLives() - 1);
+                gameUI.updateLives(gameState.getNumLives());
+            }
+        }
+        checkGameOver();
     }
 
     private void checkGameOver() {
@@ -129,9 +146,9 @@ public class GameLogic {
             lastEnemySpawned = currentTime;
         }
 
-        if (currentTime - lastPowerUpSpawned > 10_000_000_000L) {
+        if (currentTime - lastBossSpawned > 10_000_000_000L) {
             spawnBoss();
-            lastPowerUpSpawned = currentTime;
+            lastBossSpawned = currentTime;
         }
 
         checkCollisions();
