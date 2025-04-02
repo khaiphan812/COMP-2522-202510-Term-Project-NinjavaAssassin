@@ -2,18 +2,20 @@ package com.example.comp2522202510termprojectgamename;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import java.util.Objects;
 
 public class Boss extends GameObject {
 
-    public static final int WIDTH = 60;
-    public static final int HEIGHT = 60;
-    private static final double SPEED = 3.5;
+    public static final int WIDTH = 120;
+    public static final int HEIGHT = 120;
+    private static final double SPEED = 3;
+    private static final Image BOSS_IMAGE = new Image(Objects.requireNonNull(Boss.class.
+            getResourceAsStream("/images/hog.gif")));
+    private static final int INITIAL_HIT_COUNT = 5;
+    private int hitCount = INITIAL_HIT_COUNT;
     private boolean isDead = false;
-    private static int hitCount = 5;
 
-    private static final Image bossImage = new Image(Boss.class.getResourceAsStream("/images/hog.gif"));
-
-    public Boss(double xCoordinate, double yCoordinate) {
+    public Boss(final double xCoordinate, final double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
 
@@ -23,8 +25,9 @@ public class Boss extends GameObject {
     }
 
     @Override
-    public void render(GraphicsContext gc) {
-        gc.drawImage(bossImage, xCoordinate - WIDTH / 2, yCoordinate - HEIGHT / 2, WIDTH, HEIGHT);
+    public void render(final GraphicsContext gc) {
+        gc.drawImage(BOSS_IMAGE, xCoordinate - (double) WIDTH / 2,
+                yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
 
     @Override
@@ -39,7 +42,7 @@ public class Boss extends GameObject {
 
     public void takeHit() {
         hitCount--;
-        if (hitCount <= 0) {
+        if (hitCount == 0) {
             setDead(true);
         }
     }
@@ -49,7 +52,7 @@ public class Boss extends GameObject {
         return this.isDead;
     }
 
-    public void setDead(boolean b) {
-        this.isDead = b;
+    public void setDead(final boolean dead) {
+        this.isDead = dead;
     }
 }
