@@ -12,6 +12,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class GameMenu {
     private static final int WELCOME_SIZE = 30;
     private static final int START_SIZE = 200;
@@ -88,4 +90,24 @@ public class GameMenu {
         instructionsAlert.showAndWait();
     }
 
+    @Override
+    public boolean equals(final Object object) {
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        GameMenu gameMenu = (GameMenu) object;
+        return Objects.equals(primaryStage, gameMenu.primaryStage)
+                && Objects.equals(gameScene, gameMenu.gameScene);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(primaryStage, gameScene);
+    }
+
+    @Override
+    public String toString() {
+        return "GameMenu{" + "primaryStage=" + primaryStage
+                + ", gameScene=" + gameScene + '}';
+    }
 }
