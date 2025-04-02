@@ -49,7 +49,8 @@ public class Player extends GameObject {
 
     @Override
     public void render(final GraphicsContext gc) {
-        gc.drawImage(PL_IMAGE, xCoordinate - (double) WIDTH / 2, yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
+        gc.drawImage(PL_IMAGE, xCoordinate - (double) WIDTH / 2,
+                yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
 
     public void setMoveLeft(final boolean moveLeft) {
@@ -69,7 +70,8 @@ public class Player extends GameObject {
     }
 
     public void shoot(final List<GameObject> newObjects) {
-        Shuriken shuriken = new Shuriken(xCoordinate, yCoordinate - (double) HEIGHT / 2 - Shuriken.HEIGHT);
+        Shuriken shuriken = new Shuriken(xCoordinate,
+                yCoordinate - (double) HEIGHT / 2 - Shuriken.HEIGHT);
         newObjects.add(shuriken);
     }
 
