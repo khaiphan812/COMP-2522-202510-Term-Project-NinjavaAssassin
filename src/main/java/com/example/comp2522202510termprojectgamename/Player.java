@@ -5,6 +5,12 @@ import javafx.scene.image.Image;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents the player in the game.
+ *
+ * @author Khai Phan
+ * @version 2025
+ */
 public class Player extends GameObject {
 
     private static final int WIDTH = 55; // Player image width
@@ -16,7 +22,12 @@ public class Player extends GameObject {
     private boolean moveRight;
     private boolean moveUp;
     private boolean moveDown;
-
+    /**
+     * Constructs a new player.
+     *
+     * @param xCoordinate the X coordinate of the player
+     * @param yCoordinate the Y coordinate of the player
+     */
     public Player(final double xCoordinate, final double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
