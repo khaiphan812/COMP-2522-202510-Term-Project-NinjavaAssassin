@@ -13,6 +13,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.util.Objects;
 
+/**
+ * Represents the game menu.
+ *
+ * @author Khai Phan
+ * @version 2025
+ */
 public class GameMenu {
     private static final int WELCOME_SIZE = 30;
     private static final int START_SIZE = 200;
@@ -24,6 +30,12 @@ public class GameMenu {
     private final Stage primaryStage;
     private final Scene gameScene;
 
+    /**
+     * Constructs the game menu.
+     *
+     * @param primaryStage the main stage of the game
+     * @param gameScene the scene of the game
+     */
     public GameMenu(final Stage primaryStage, final Scene gameScene) {
         this.primaryStage = primaryStage;
         this.gameScene = gameScene;
@@ -94,18 +106,6 @@ public class GameMenu {
      *
      * @param object an Object
      * @return true if the argument is equal to this game menu, else false
-     */
-
-    /**
-     * Returns a hashCode for this game menu.
-     *
-     * @return hashCode as an int
-     */
-
-    /**
-     * Returns a string representation of the game menu.
-     *
-     * @return a string containing game menu's contents
      */
     @Override
     public boolean equals(final Object object) {
