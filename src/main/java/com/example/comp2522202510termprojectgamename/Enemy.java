@@ -47,7 +47,7 @@ public class Enemy extends GameObject {
     }
 
     /**
-     * Renders the image of the enemy.
+     * Renders the GIF of the enemy.
      */
     @Override
     public void render(final GraphicsContext gc) {

@@ -44,7 +44,7 @@ public class Boss extends GameObject {
     }
 
     /**
-     * Renders the image of the boss.
+     * Renders the GIF of the boss.
      */
     @Override
     public void render(final GraphicsContext gc) {
