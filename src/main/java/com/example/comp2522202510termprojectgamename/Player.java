@@ -49,7 +49,9 @@ public class Player extends GameObject {
     public double getHeight() {
         return HEIGHT;
     }
-
+    /**
+     * Updates the positions of the player after every move.
+     */
     @Override
     public void update() {
         if (moveLeft && xCoordinate - SPEED > 0) {
@@ -65,7 +67,9 @@ public class Player extends GameObject {
             yCoordinate += SPEED;
         }
     }
-
+    /**
+     * Renders the GIF of the player.
+     */
     @Override
     public void render(final GraphicsContext gc) {
         gc.drawImage(PL_IMAGE, xCoordinate - (double) WIDTH / 2,
@@ -103,13 +107,21 @@ public class Player extends GameObject {
     public void setMoveDown(final boolean moveDown) {
         this.moveDown = moveDown;
     }
-
+    /**
+     * Conducts the shuriken shooting actions.
+     *
+     * @param newObjects the list of shurikens shot by the player
+     */
     public void shoot(final List<GameObject> newObjects) {
         Shuriken shuriken = new Shuriken(xCoordinate,
                 yCoordinate - (double) HEIGHT / 2 - Shuriken.HEIGHT);
         newObjects.add(shuriken);
     }
-
+    /**
+     * Sets a boolean value if the player moves right.
+     *
+     * @return true if the player is dead, otherwise false
+     */
     @Override
     public boolean isDead() {
         return false;
@@ -130,7 +142,8 @@ public class Player extends GameObject {
             return false;
         }
         Player player = (Player) object;
-        return moveLeft == player.moveLeft && moveRight == player.moveRight && moveUp == player.moveUp && moveDown == player.moveDown;
+        return moveLeft == player.moveLeft && moveRight == player.moveRight
+                && moveUp == player.moveUp && moveDown == player.moveDown;
     }
 
     /**
