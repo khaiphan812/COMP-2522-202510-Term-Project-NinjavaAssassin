@@ -110,7 +110,9 @@ public class NinJava extends Application {
      */
     @Override
     public boolean equals(final Object object) {
-        if (object == null || getClass() != object.getClass()) return false;
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
         NinJava ninJava = (NinJava) object;
         return Objects.equals(gameState, ninJava.gameState)
                 && Objects.equals(gameLogic, ninJava.gameLogic);
