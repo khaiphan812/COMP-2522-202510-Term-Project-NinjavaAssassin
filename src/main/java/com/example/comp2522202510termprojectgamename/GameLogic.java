@@ -59,7 +59,6 @@ public class GameLogic {
         Boss boss = new Boss(randomCoordinate, (double) -Boss.HEIGHT / 2);
         gameState.getGameObjects().add(boss);
     }
-
     private void checkCollisions() {
         List<Shuriken> shurikens = new ArrayList<>();
         List<Enemy> enemies = new ArrayList<>();
@@ -166,6 +165,12 @@ public class GameLogic {
             }
         }
     }
+
+    /**
+     * Updates the game logic over time.
+     *
+     * @param currentTime the current time
+     */
     public void updateGame(final long currentTime) {
         if (gameState.isReset()) {
             gameState.setReset(false);
