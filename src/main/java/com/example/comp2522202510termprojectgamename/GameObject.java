@@ -43,11 +43,21 @@ public abstract class GameObject {
         this.width = width;
         this.height = height;
     }
-
+    /**
+     * Updates the game object.
+     */
     public abstract void update();
-
-    public abstract void render(GraphicsContext gc);
-
+    /**
+     * Renders the image of the game object.
+     *
+     * @param graphicsContext the graphics context of the object
+     */
+    public abstract void render(GraphicsContext graphicsContext);
+    /**
+     * Checks the life or death status game object.
+     *
+     * @return true if the game object is dead, otherwise false
+     */
     public abstract boolean isDead();
 
     public double getY() {
