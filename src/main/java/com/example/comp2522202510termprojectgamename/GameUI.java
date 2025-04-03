@@ -12,7 +12,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameUI {
-    private static final int DELAY = 2500;
+    private static final int DELAY = 2000;
     private static final int SETTING_1 = 10;
     private static final int SETTING_2 = 40;
     private static final int FONT_SIZE = 18;
