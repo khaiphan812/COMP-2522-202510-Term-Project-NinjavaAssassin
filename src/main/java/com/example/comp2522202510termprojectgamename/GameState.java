@@ -77,23 +77,41 @@ public class GameState {
     public boolean isReset() {
         return reset;
     }
-
+    /**
+     * Resets the game.
+     *
+     * @param reset reset status is a boolean
+     */
     public void setReset(final boolean reset) {
         this.reset = reset;
     }
-
+    /**
+     * Gets the game object.
+     *
+     * @return the list of game objects
+     */
     public List<GameObject> getGameObjects() {
         return gameObjects;
     }
-
+    /**
+     * Gets more game objects to add to the game.
+     *
+     * @return the list of game objects
+     */
     public List<GameObject> getNewObjects() {
         return newObjects;
     }
-
+    /**
+     * Gets the player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
-
+    /**
+     * Resets the game.
+     */
     public void resetGame() {
         gameObjects.clear();
         numLives = DEFAULT_LIVES;
