@@ -51,15 +51,25 @@ public class GameUI {
 
         root.getChildren().addAll(scoreLabel, lifeLabel);
     }
-
+    /**
+     * Updates the score.
+     *
+     * @param score the root of the game
+     */
     public void updateScore(final int score) {
         scoreLabel.setText("Score: " + score);
     }
-
+    /**
+     * Updates the lives count.
+     *
+     * @param lives the root of the game
+     */
     public void updateLives(final int lives) {
         lifeLabel.setText("Lives: " + lives);
     }
-
+    /**
+     * Shows a message when game is over.
+     */
     public void showGameOverMessage() {
         Text lostMessage = new Text("Game Over! Your score is "
                 + gameState.getScore() + ".\nGame has been reset.");
