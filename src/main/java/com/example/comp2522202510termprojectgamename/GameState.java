@@ -37,22 +37,43 @@ public class GameState {
     public GameState() {
         gameObjects.add(player);
     }
-
+    /**
+     * Gets the current number of lives.
+     *
+     * @return the current number of lives
+     */
     public int getNumLives() {
         return numLives;
     }
-
+    /**
+     * Sets the current number of lives to a specified int.
+     *
+     * @param numLives the current number of lives
+     */
     public void setNumLives(final int numLives) {
         this.numLives = numLives;
     }
-
+    /**
+     * Gets the current score.
+     *
+     * @return the current score
+     */
     public int getScore() {
         return score;
     }
+    /**
+     * Sets the current score to a specified int.
+     *
+     * @param score the current score
+     */
     public void setScore(final int score) {
         this.score = score;
     }
-
+    /**
+     * Checks if the game should reset.
+     *
+     * @return true if the game should reset, otherwise false
+     */
     public boolean isReset() {
         return reset;
     }
