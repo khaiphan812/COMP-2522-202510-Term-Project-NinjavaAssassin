@@ -38,31 +38,57 @@ public class Enemy extends GameObject {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
 
+    /**
+     * Updates the position of the enemy when moving.
+     */
     @Override
     public void update() {
         yCoordinate += speed;
     }
 
+    /**
+     * Renders the image of the enemy.
+     */
     @Override
     public void render(final GraphicsContext gc) {
         gc.drawImage(ENEMY_IMAGE, xCoordinate - (double) WIDTH / 2,
                 yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
 
+    /**
+     * Gets the width of the enemy as a double.
+     *
+     * @return the width of the enemy as a double
+     */
     @Override
     public double getWidth() {
         return WIDTH;
     }
 
+    /**
+     * Gets the height of the enemy as a double.
+     *
+     * @return the height of the enemy as a double
+     */
     @Override
     public double getHeight() {
         return HEIGHT;
     }
 
+    /**
+     * Regulates the life/death status to the enemy.
+     *
+     * @param dead a boolean value
+     */
     public void setDead(final boolean dead) {
         this.dead = dead;
     }
 
+    /**
+     * Check if the enemy is dead.
+     *
+     * @return true if the enemy is dead, otherwise false.
+     */
     @Override
     public boolean isDead() {
         return dead;
