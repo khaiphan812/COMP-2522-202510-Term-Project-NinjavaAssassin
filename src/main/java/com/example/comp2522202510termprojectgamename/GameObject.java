@@ -5,13 +5,37 @@ import javafx.geometry.Bounds;
 import javafx.scene.shape.Rectangle;
 import java.util.Objects;
 
+/**
+ * Represents an object in the game.
+ *
+ * @author Khai Phan
+ * @version 2025
+ */
 public abstract class GameObject {
-
+    /**
+     * xCoordinate is a double.
+     */
     protected double xCoordinate;
+    /**
+     * xCoordinate is a double.
+     */
     protected double yCoordinate;
+    /**
+     * width is a double.
+     */
     protected double width;
+    /**
+     * height is a double.
+     */
     protected double height;
-
+    /**
+     * Constructs a game object.
+     *
+     * @param xCoordinate the X coordinate of the object
+     * @param yCoordinate the Y coordinate of the object
+     * @param width the width of the object
+     * @param height the height of the object
+     */
     public GameObject(final double xCoordinate, final double yCoordinate,
                       final double width, final double height) {
         this.xCoordinate = xCoordinate;
