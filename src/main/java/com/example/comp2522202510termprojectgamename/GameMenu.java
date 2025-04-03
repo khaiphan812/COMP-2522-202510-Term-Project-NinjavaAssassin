@@ -96,12 +96,13 @@ public class GameMenu {
         Alert instructionsAlert = new Alert(AlertType.INFORMATION);
         instructionsAlert.setTitle("Instructions");
         instructionsAlert.setHeaderText("NinJava Guide");
-        instructionsAlert.setContentText("Press WASD or arrow keys to move your Ninja.\n"
-                + "Press SPACE to throw shurikens and destroy the enemies.\n"
-                + "Enemies move faster as you reach a higher score.\n"
-                + "Killing special bosses earn you more points.\n"
-                + "If an enemy reaches the bottom or touches you, you'll lose a life.\n"
-                + "The game resets if you lose all lives.");
+        instructionsAlert.setContentText("""
+                Press WASD or arrow keys to move your Ninja.
+                Press SPACE to throw shurikens and destroy the enemies.
+                Enemies move faster as you reach a higher score.
+                Killing special bosses earn you more points.
+                If an enemy reaches the bottom or touches you, you'll lose a life.
+                The game resets if you lose all lives.""");
         instructionsAlert.showAndWait();
     }
 
