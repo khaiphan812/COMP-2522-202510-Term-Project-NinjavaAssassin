@@ -31,12 +31,20 @@ public class Player extends GameObject {
     public Player(final double xCoordinate, final double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
-
+    /**
+     * Gets the width of the player.
+     *
+     * @return the width of the player
+     */
     @Override
     public double getWidth() {
         return WIDTH;
     }
-
+    /**
+     * Gets the height of the player.
+     *
+     * @return the height of the player
+     */
     @Override
     public double getHeight() {
         return HEIGHT;
