@@ -71,19 +71,35 @@ public class Player extends GameObject {
         gc.drawImage(PL_IMAGE, xCoordinate - (double) WIDTH / 2,
                 yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
-
+    /**
+     * Sets a boolean value if the player moves left.
+     *
+     * @param moveLeft the width of the player
+     */
     public void setMoveLeft(final boolean moveLeft) {
         this.moveLeft = moveLeft;
     }
-
+    /**
+     * Sets a boolean value if the player moves right.
+     *
+     * @param moveRight the width of the player
+     */
     public void setMoveRight(final boolean moveRight) {
         this.moveRight = moveRight;
     }
-
+    /**
+     * Sets a boolean value if the player moves up.
+     *
+     * @param moveUp the width of the player
+     */
     public void setMoveUp(final boolean moveUp) {
         this.moveUp = moveUp;
     }
-
+    /**
+     * Sets a boolean value if the player moves down.
+     *
+     * @param moveDown the width of the player
+     */
     public void setMoveDown(final boolean moveDown) {
         this.moveDown = moveDown;
     }
