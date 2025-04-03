@@ -92,7 +92,7 @@ public class Boss extends GameObject {
     }
 
     /**
-     * Sets the life/death condition to the boss.
+     * Regulates the life/death status to the boss.
      *
      * @param dead a boolean value
      */
