@@ -59,16 +59,33 @@ public abstract class GameObject {
      * @return true if the game object is dead, otherwise false
      */
     public abstract boolean isDead();
-
+    /**
+     * Gets the Y coordinate of the game object.
+     *
+     * @return Y coordinate of the game object
+     */
     public double getY() {
         return yCoordinate; }
-
+    /**
+     * Gets the boundaries of the game object.
+     *
+     * @return the boundaries of the game object
+     */
     public Bounds getBounds() {
         return new Rectangle(xCoordinate - getWidth() / 2,
                 yCoordinate - getHeight() / 2, getWidth(), getHeight()).getBoundsInLocal();
     }
+    /**
+     * Gets the width of the game object.
+     *
+     * @return the width of the game object
+     */
     public abstract double getWidth();
-
+    /**
+     * Gets the height of the game object.
+     *
+     * @return the height of the game object
+     */
     public abstract double getHeight();
 
     /**
