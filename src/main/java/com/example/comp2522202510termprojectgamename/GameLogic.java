@@ -37,7 +37,10 @@ public class GameLogic {
         this.gameUI = gameUI;
     }
 
-    
+    /**
+     * Spawns an enemy in the game.
+     *
+     */
     private void spawnEnemy() {
         Random random = new Random();
         int randomCoordinate = random.nextInt(GameState.WIDTH - COORDINATE_ELO_1)
@@ -46,6 +49,10 @@ public class GameLogic {
         gameState.getGameObjects().add(enemy);
     }
 
+    /**
+     * Spawns a boss in the game.
+     *
+     */
     private void spawnBoss() {
         Random random = new Random();
         int randomCoordinate = random.nextInt(GameState.WIDTH - Boss.WIDTH) + Boss.WIDTH / 2;
