@@ -11,11 +11,20 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.util.Objects;
 
+/**
+ * Runs the game.
+ *
+ * @author Khai Phan
+ * @version 2025
+ */
 public class NinJava extends Application {
 
     private GameState gameState;
     private GameLogic gameLogic;
-
+    /**
+     * Drives the game.
+     * @param args unused
+     */
     public static void main(final String[] args) {
         launch(args);
     }
@@ -51,6 +60,11 @@ public class NinJava extends Application {
             }
         });
     }
+    /**
+     * Drives the game.
+     *
+     * @param primaryStage the main stage of the game
+     */
     @Override
     public void start(final Stage primaryStage) {
         this.gameState = new GameState();
