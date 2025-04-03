@@ -4,16 +4,36 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import java.util.Objects;
 
+/**
+ * Represents an enemy in the game.
+ *
+ * @author Khai Phan
+ * @version 2025
+ */
 public class Enemy extends GameObject {
-
+    /**
+     * The width of the enemy is an int.
+     */
     protected static final int WIDTH = 65;
+    /**
+     * The height of the enemy is an int.
+     */
     protected static final int HEIGHT = 65;
     private static final Image ENEMY_IMAGE = new Image(Objects.requireNonNull(Enemy.class.
             getResourceAsStream("/images/junkrat.gif")));
     private static final int INITIAL_SPEED = 2;
+    /**
+     * The speed of the enemy is a double.
+     */
     protected static double speed = INITIAL_SPEED;
     private boolean dead = false;
 
+    /**
+     * Constructs an enemy with specified width, height, X and Y coordinates.
+     *
+     * @param xCoordinate the X coordinate of the enemy, must be a double.
+     * @param yCoordinate the Y coordinate of the enemy, must be a double.
+     */
     public Enemy(final double xCoordinate, final double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
