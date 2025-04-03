@@ -59,63 +59,6 @@ public class GameLogic {
         Boss boss = new Boss(randomCoordinate, (double) -Boss.HEIGHT / 2);
         gameState.getGameObjects().add(boss);
     }
-//    private void checkCollisions() {
-//        List<Shuriken> shurikens = new ArrayList<>();
-//        List<Enemy> enemies = new ArrayList<>();
-//        List<Boss> bosses = new ArrayList<>();
-//        Player player = gameState.getPlayer();
-//
-//        for (GameObject object : gameState.getGameObjects()) {
-//            if (object instanceof Shuriken) {
-//                shurikens.add((Shuriken) object);
-//            } else if (object instanceof Enemy) {
-//                enemies.add((Enemy) object);
-//            } else if (object instanceof Boss) {
-//                bosses.add((Boss) object);
-//            }
-//        }
-//        for (Shuriken shuriken : shurikens) {
-//            for (Enemy enemy : enemies) {
-//                if (shuriken.getBounds().intersects(enemy.getBounds())) {
-//                    shuriken.setDead(true);
-//                    enemy.setDead(true);
-//                    gameState.setScore(gameState.getScore() + SCORE_PER_ENEMY);
-//                    gameUI.updateScore(gameState.getScore());
-//
-//                    if (gameState.getScore() % MULTI_OF_100 == 0) {
-//                        Enemy.speed += 2;
-//                    }
-//                }
-//            }
-//
-//            for (Boss boss : bosses) {
-//                if (shuriken.getBounds().intersects(boss.getBounds())) {
-//                    shuriken.setDead(true);
-//                    boss.takeHit();
-//                    if (boss.isDead()) {
-//                        gameState.setScore(gameState.getScore() + SCORE_PER_BOSS);
-//                        gameUI.updateScore(gameState.getScore());
-//                    }
-//                }
-//            }
-//        }
-//        for (Enemy enemy : enemies) {
-//            if (player.getBounds().intersects(enemy.getBounds())) {
-//                enemy.setDead(true);
-//                gameState.setNumLives(gameState.getNumLives() - 1);
-//                gameUI.updateLives(gameState.getNumLives());
-//            }
-//        }
-//
-//        for (Boss boss : bosses) {
-//            if (player.getBounds().intersects(boss.getBounds())) {
-//                boss.setDead(true);
-//                gameState.setNumLives(gameState.getNumLives() - 1);
-//                gameUI.updateLives(gameState.getNumLives());
-//            }
-//        }
-//        checkGameOver();
-//    }
 
     private void checkGameOver() {
         if (gameState.getNumLives() == 0) {
@@ -194,6 +137,68 @@ public class GameLogic {
         }
     }
 
+    private void checkShurikenBossCollisions() {
+        List<Shuriken> shurikens = new ArrayList<>();
+        List<Boss> bosses = new ArrayList<>();
+
+        for (GameObject object : gameState.getGameObjects()) {
+            if (object instanceof Shuriken) {
+                shurikens.add((Shuriken) object);
+            } else if (object instanceof Boss) {
+                bosses.add((Boss) object);
+            }
+        }
+
+        for (Shuriken shuriken : shurikens) {
+            for (Boss boss : bosses) {
+                if (shuriken.getBounds().intersects(boss.getBounds())) {
+                    shuriken.setDead(true);
+                    boss.takeHit();
+                    if (boss.isDead()) {
+                        gameState.setScore(gameState.getScore() + SCORE_PER_BOSS);
+                        gameUI.updateScore(gameState.getScore());
+                    }
+                }
+            }
+        }
+    }
+
+    private void checkPlayerCollisions() {
+        List<Enemy> enemies = new ArrayList<>();
+        List<Boss> bosses = new ArrayList<>();
+        Player player = gameState.getPlayer();
+
+        for (GameObject object : gameState.getGameObjects()) {
+            if (object instanceof Enemy) {
+                enemies.add((Enemy) object);
+            } else if (object instanceof Boss) {
+                bosses.add((Boss) object);
+            }
+        }
+
+        for (Enemy enemy : enemies) {
+            if (player.getBounds().intersects(enemy.getBounds())) {
+                enemy.setDead(true);
+                gameState.setNumLives(gameState.getNumLives() - 1);
+                gameUI.updateLives(gameState.getNumLives());
+            }
+        }
+
+        for (Boss boss : bosses) {
+            if (player.getBounds().intersects(boss.getBounds())) {
+                boss.setDead(true);
+                gameState.setNumLives(gameState.getNumLives() - 1);
+                gameUI.updateLives(gameState.getNumLives());
+            }
+        }
+    }
+
+    private void checkCollisions() {
+        checkShurikenEnemyCollisions();
+        checkShurikenBossCollisions();
+        checkPlayerCollisions();
+        checkGameOver();
+    }
     /**
      * Updates the game logic over time.
      *
