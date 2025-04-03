@@ -11,6 +11,12 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Represents the game UI.
+ *
+ * @author Khai Phan
+ * @version 2025
+ */
 public class GameUI {
     private static final int DELAY = 2000;
     private static final int SETTING_1 = 10;
@@ -21,6 +27,12 @@ public class GameUI {
     private final Pane root;
     private final GameState gameState;
 
+    /**
+     * Constructs the game UI.
+     *
+     * @param root the root of the game
+     * @param gameState the game state
+     */
     public GameUI(final Pane root, final GameState gameState) {
         this.root = root;
         this.gameState = gameState;
