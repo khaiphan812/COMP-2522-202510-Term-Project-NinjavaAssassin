@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ * Represents the game logic.
+ *
+ * @author Khai Phan
+ * @version 2025
+ */
 public class GameLogic {
     private static final int COORDINATE_ELO_1 = 50;
     private static final int COORDINATE_ELO_2 = 25;
@@ -20,11 +26,18 @@ public class GameLogic {
     private long lastEnemySpawned = 0;
     private long lastBossSpawned = 0;
 
+    /**
+     * Constructs the game logic.
+     *
+     * @param gameState the game state
+     * @param gameUI the game UI
+     */
     public GameLogic(final GameState gameState, final GameUI gameUI) {
         this.gameState = gameState;
         this.gameUI = gameUI;
     }
 
+    
     private void spawnEnemy() {
         Random random = new Random();
         int randomCoordinate = random.nextInt(GameState.WIDTH - COORDINATE_ELO_1)
