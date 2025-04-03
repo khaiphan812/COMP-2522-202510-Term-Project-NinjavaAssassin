@@ -40,7 +40,11 @@ public class GameMenu {
         this.primaryStage = primaryStage;
         this.gameScene = gameScene;
     }
-
+    /**
+     * Creates the game menu.
+     *
+     * @return a Pane object
+     */
     public Pane createMenu() {
         Pane menuPane = new Pane();
         menuPane.setStyle("-fx-background-color: rgba(34,15,15,0.91);");
