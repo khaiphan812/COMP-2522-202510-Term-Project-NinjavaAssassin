@@ -22,6 +22,7 @@ public class Shuriken extends GameObject {
     private static final double SPEED = 7;
     private static final Image SHURIKEN_IMAGE = new Image(Objects.requireNonNull(Shuriken.class.
             getResourceAsStream("/images/grey.gif")));
+    private boolean dead = false;
     /**
      * Constructs a new shuriken.
      *
@@ -49,24 +50,34 @@ public class Shuriken extends GameObject {
     public double getHeight() {
         return HEIGHT;
     }
-
+    /**
+     * Update the position of the shuriken when being thrown.
+     */
     @Override
     public void update() {
         yCoordinate -= SPEED;
     }
-
+    /**
+     * Renders the GIF of the shuriken.
+     */
     @Override
     public void render(final GraphicsContext gc) {
         gc.drawImage(SHURIKEN_IMAGE, xCoordinate - (double) WIDTH / 2,
                 yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
-
-    private boolean dead = false;
-
+    /**
+     * Regulates the life/death status to the shuriken.
+     *
+     * @param dead a boolean value
+     */
     public void setDead(final boolean dead) {
         this.dead = dead;
     }
-
+    /**
+     * Check if the shuriken is dead (needs to disappear).
+     *
+     * @return true if the shuriken is dead, otherwise false.
+     */
     @Override
     public boolean isDead() {
         return dead;
