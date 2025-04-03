@@ -31,12 +31,20 @@ public class Shuriken extends GameObject {
     public Shuriken(final double xCoordinate, final double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
     }
-
+    /**
+     * Gets the width of the shuriken.
+     *
+     * @return the width of the shuriken
+     */
     @Override
     public double getWidth() {
         return WIDTH;
     }
-
+    /**
+     * Gets the height of the shuriken.
+     *
+     * @return the height of the shuriken
+     */
     @Override
     public double getHeight() {
         return HEIGHT;
