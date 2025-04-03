@@ -4,9 +4,24 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Represents the game state.
+ *
+ * @author Khai Phan
+ * @version 2025
+ */
 public class GameState {
+    /**
+     * Width is an int.
+     */
     protected static final int WIDTH = 400;
+    /**
+     * Height is an int.
+     */
     protected static final int HEIGHT = 800;
+    /**
+     * Default lives is an int.
+     */
     protected static final int DEFAULT_LIVES = 10;
     private int numLives;
     private int score = 0;
@@ -16,7 +31,9 @@ public class GameState {
     private final List<GameObject> newObjects = new ArrayList<>();
 
     private final Player player = new Player((double) WIDTH / 2, HEIGHT - 40);
-
+    /**
+     * Constructs a game state.
+     */
     public GameState() {
         gameObjects.add(player);
     }
