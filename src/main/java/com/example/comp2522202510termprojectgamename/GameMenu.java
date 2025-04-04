@@ -47,7 +47,7 @@ public class GameMenu {
      */
     public Pane createMenu() {
         Pane menuPane = new Pane();
-        menuPane.setStyle("-fx-background-color: rgba(34,15,15,0.91);");
+        menuPane.setStyle("-fx-background-color: rgba(92,69,69,0.91);");
 
         Text welcomeText = new Text("Welcome to NinJava!");
         welcomeText.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, WELCOME_SIZE));
@@ -58,7 +58,7 @@ public class GameMenu {
         Button startButton = createButton("START", START_SIZE);
         startButton.setOnAction(event -> primaryStage.setScene(gameScene));
 
-        Button instructionButton = createButton("Instructions", INSTRUCTIONS_SIZE);
+        Button instructionButton = createButton("Game Guide", INSTRUCTIONS_SIZE);
         instructionButton.setOnAction(event -> showInstructions());
 
         Button quitButton = createButton("Quit", QUIT_SIZE);
@@ -94,15 +94,15 @@ public class GameMenu {
 
     private void showInstructions() {
         Alert instructionsAlert = new Alert(AlertType.INFORMATION);
-        instructionsAlert.setTitle("Instructions");
+        instructionsAlert.setTitle("Game Guide");
         instructionsAlert.setHeaderText("NinJava Guide");
         instructionsAlert.setContentText("""
-                - Press WASD or arrow keys to move your Ninja.
+                - Press arrow keys or WASD to move your Ninja.
                 - Press SPACE to throw shurikens and destroy the enemies.
-                - Enemies move faster as you reach a higher score.
+                - Enemies move faster as your score gets higher.
                 - Kill bosses to earn more points, but it also takes more shots.
                 - If an enemy reaches the bottom or touches you, you will lose a life.
-                - The game will end and auto-reset if you lose all lives.""");
+                - The game will end if you lose all your lives.""");
         instructionsAlert.showAndWait();
     }
 
