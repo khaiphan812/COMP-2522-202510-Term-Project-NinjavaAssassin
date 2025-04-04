@@ -71,24 +71,13 @@ public class GameUI {
      * Shows a message when game is over.
      */
     public void showGameOverMessage() {
-        Text lostMessage = new Text("Game Over! Your score is "
-                + gameState.getScore() + ".\nGame has been reset.");
-        lostMessage.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, FONT_SIZE));
-        lostMessage.setFill(Color.WHITESMOKE);
-        lostMessage.setX((GameState.WIDTH - lostMessage.getLayoutBounds().getWidth()) / 2);
-        lostMessage.setY((double) GameState.HEIGHT / 2);
-        root.getChildren().add(lostMessage);
-
-        new Timer().schedule(
-                new TimerTask() {
-                    @Override
-                    public void run() {
-                        Platform.runLater(() ->
-                                root.getChildren().remove(lostMessage));
-                    }
-                },
-                DELAY
-        );
+        Text gameOverMessage = new Text("Game Over! Your score is "
+                + gameState.getScore() + ".\nPress any key to start a new game.");
+        gameOverMessage.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, FONT_SIZE));
+        gameOverMessage.setFill(Color.WHITESMOKE);
+        gameOverMessage.setX((GameState.WIDTH - gameOverMessage.getLayoutBounds().getWidth()) / 2);
+        gameOverMessage.setY((double) GameState.HEIGHT / 2);
+        root.getChildren().add(gameOverMessage);
     }
 
     /**
