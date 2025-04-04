@@ -82,18 +82,11 @@ public class NinJava extends Application {
         Canvas canvas = new Canvas(GameState.WIDTH, GameState.HEIGHT);
         root.getChildren().add(canvas);
 
-        this.gameLogic = new GameLogic(gameState, new GameUI(root, gameState));
-
-        Scene gameScene = new Scene(root, GameState.WIDTH,
-                GameState.HEIGHT, javafx.scene.paint.Color.BLACK);
-        initEventHandlers(gameScene);
-
-        GameMenu gameMenu = new GameMenu(primaryStage, gameScene);
-        Pane menuPane = gameMenu.createMenu();
-        Scene menuScene = new Scene(menuPane, GameState.WIDTH, GameState.HEIGHT);
+        this.gameUI = new GameUI(root, gameState);
+        this.gameLogic = new GameLogic(gameState, gameUI);
 
         primaryStage.setScene(menuScene);
-        primaryStage.setTitle("NinJava");
+        primaryStage.setTitle("NinJava Assassin");
         primaryStage.setResizable(false);
 
         new AnimationTimer() {
@@ -108,8 +101,14 @@ public class NinJava extends Application {
                     object.render(gc);
                 }
             }
-        }.start();
+        }
         primaryStage.show();
+    }
+
+    private Scene createGameScene(Pane root) {
+        Scene gameScene = new Scene(root, GameState.WIDTH, GameState.HEIGHT, javafx.scene.paint.Color.BLACK);
+        initEventHandlers(gameScene);
+        return gameScene;
     }
     /**
      * Returns true if the argument is equal to this NinJava, else false.
