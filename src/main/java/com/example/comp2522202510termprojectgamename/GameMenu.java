@@ -47,7 +47,7 @@ public class GameMenu {
      */
     public Pane createMenu() {
         Pane menuPane = new Pane();
-        menuPane.setStyle("-fx-background-color: rgba(92,69,69,0.91);");
+        menuPane.setStyle("-fx-background-color: rgb(88,79,68);");
 
         Text welcomeText = new Text("Welcome to NinJava!");
         welcomeText.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, WELCOME_SIZE));
