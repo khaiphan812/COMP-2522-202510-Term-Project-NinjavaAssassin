@@ -24,12 +24,12 @@ The more enemy the player destroys, the higher score they achieve.
 
 ## Features
  * Difficulty: The game starts with an easy difficulty. As player score gets higher, difficulty level increases.
- * Junkrats: Regular enemies that spawn randomly and frequently, and their speed as the player score gets higher.
- * Roadhogs: Special bosses that spawn randomly and less frequently, their speed remain constant.
- * Shuriken: Weapon that the player uses to throw at the enemies and bosses to destroy them. 
+ * Junkrat: A regular enemy that spawns randomly and frequently, and its speed increases as the player reaches a higher score.
+ * Roadhog: A special boss that spawns randomly but less frequently, its speed remains constant.
+ * Shuriken: A weapon that the player uses to throw at the enemies to destroy them. 
 It takes 1 shuriken to destroy a Junkrat and 5 shurikens to destroy a Roadhog.
  * Score: Each Junkrat kill is worth 10 points, while each Roadhog kill is worth 50 points. 
- * Lives: The starting life count is 10. The player loses one life everytime an enemy reaches the bottom of the map
+ * Lives: At the start, the player has 10 lives. The player loses one life everytime an enemy reaches the bottom of the map
 or touches the player. The game is over when the player runs out of all lives.
 
 ## Prerequisites
