@@ -85,11 +85,31 @@ public class NinJava extends Application {
         this.gameUI = new GameUI(root, gameState);
         this.gameLogic = new GameLogic(gameState, gameUI);
 
+        Scene gameScene = createGameScene(root);
+        Scene menuScene = createMenuScene(primaryStage, gameScene);
+
         primaryStage.setScene(menuScene);
         primaryStage.setTitle("NinJava Assassin");
         primaryStage.setResizable(false);
+        startAnimationTimer(canvas);
+        primaryStage.show();
+    }
 
-        new AnimationTimer() {
+    private Scene createGameScene(final Pane root) {
+        Scene gameScene = new Scene(root, GameState.WIDTH,
+                GameState.HEIGHT, javafx.scene.paint.Color.BLACK);
+        initEventHandlers(gameScene);
+        return gameScene;
+    }
+
+    private Scene createMenuScene(final Stage primaryStage, final Scene gameScene) {
+        GameMenu gameMenu = new GameMenu(primaryStage, gameScene);
+        Pane menuPane = gameMenu.createMenu();
+        return new Scene(menuPane, GameState.WIDTH, GameState.HEIGHT);
+    }
+
+    private void startAnimationTimer(final Canvas canvas) {
+        AnimationTimer animationTimer = new AnimationTimer() {
             @Override
             public void handle(final long currentTime) {
                 GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -101,14 +121,8 @@ public class NinJava extends Application {
                     object.render(gc);
                 }
             }
-        }
-        primaryStage.show();
-    }
-
-    private Scene createGameScene(Pane root) {
-        Scene gameScene = new Scene(root, GameState.WIDTH, GameState.HEIGHT, javafx.scene.paint.Color.BLACK);
-        initEventHandlers(gameScene);
-        return gameScene;
+        };
+        animationTimer.start();
     }
     /**
      * Returns true if the argument is equal to this NinJava, else false.
