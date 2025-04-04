@@ -1,4 +1,4 @@
-# COMP-2522-202510-Term-project
+# COMP-2522-202510-Term-project-NinJava-Assassin
 
 ## Name:
 Khai Phan
@@ -11,3 +11,7 @@ khaiphan812
 
 ## Java version:
 Java 23
+
+## JavaFX version:
+JavaFX 24
+
