@@ -26,8 +26,8 @@ public class Shuriken extends GameObject {
     /**
      * Constructs a new shuriken.
      *
-     * @param xCoordinate the X coordinate of the shuirken
-     * @param yCoordinate the Y coordinate of the shuirken
+     * @param xCoordinate the X coordinate of the shuriken
+     * @param yCoordinate the Y coordinate of the shuriken
      */
     public Shuriken(final double xCoordinate, final double yCoordinate) {
         super(xCoordinate, yCoordinate, WIDTH, HEIGHT);
