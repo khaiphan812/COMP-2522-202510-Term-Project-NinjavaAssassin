@@ -21,6 +21,7 @@ public class NinJava extends Application {
 
     private GameState gameState;
     private GameLogic gameLogic;
+    private GameUI gameUI;
     /**
      * Drives the game.
      * @param args unused
@@ -41,6 +42,14 @@ public class NinJava extends Application {
     private void initEventHandlers(final Scene scene) {
         Player player = gameState.getPlayer();
         scene.setOnKeyPressed(event -> {
+            if (gameState.isGameOver()) {
+                gameUI.removeGameOverMessage();
+                gameState.resetGame();
+                gameUI.updateScore(0);
+                gameUI.updateLives(gameState.getNumLives());
+                gameState.setGameOver(false); // Unpause
+                return;
+            }
             switch (event.getCode()) {
                 case A: case LEFT: player.setMoveLeft(true); break;
                 case D: case RIGHT: player.setMoveRight(true); break;
