@@ -61,11 +61,10 @@ public class GameLogic {
     }
 
     private void checkGameOver() {
-        if (gameState.getNumLives() == 0) {
+        if (gameState.getNumLives() == 0 && !gameState.isGameOver()) {
+            gameState.setGameOver(true);
             gameUI.showGameOverMessage();
-            gameState.resetGame();
-            gameUI.updateScore(0);
-            gameUI.updateLives(gameState.getNumLives());
+            gameUI.showGameOverMessage();
         }
     }
 
@@ -205,15 +204,16 @@ public class GameLogic {
      * @param currentTime the current time
      */
     public void updateGame(final long currentTime) {
+        if (gameState.isGameOver()) {
+            return;
+        }
         if (gameState.isReset()) {
             gameState.setReset(false);
         }
-
         if (currentTime - lastEnemySpawned > NANO_SECONDS_1) {
             spawnEnemy();
             lastEnemySpawned = currentTime;
         }
-
         if (currentTime - lastBossSpawned > NANO_SECONDS_2) {
             spawnBoss();
             lastBossSpawned = currentTime;
