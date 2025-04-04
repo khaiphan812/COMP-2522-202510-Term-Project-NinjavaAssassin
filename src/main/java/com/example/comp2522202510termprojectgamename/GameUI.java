@@ -81,6 +81,13 @@ public class GameUI {
     }
 
     /**
+     * Removes the game over message when from the screen.
+     */
+    public void removeGameOverMessage() {
+        root.getChildren().removeIf(node -> node instanceof Text
+                && ((Text) node).getText().startsWith("Game Over!"));
+    }
+    /**
      * Returns true if the argument is equal to this game UI, else false.
      *
      * @param object an Object
