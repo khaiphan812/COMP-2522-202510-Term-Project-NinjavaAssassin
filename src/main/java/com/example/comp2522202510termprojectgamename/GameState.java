@@ -26,6 +26,7 @@ public class GameState {
     private int numLives;
     private int score = 0;
     private boolean reset = false;
+    private boolean gameOver = false;
 
     private final List<GameObject> gameObjects = new ArrayList<>();
     private final List<GameObject> newObjects = new ArrayList<>();
@@ -121,6 +122,23 @@ public class GameState {
         reset = true;
     }
 
+    /**
+     * Checks if the game is over.
+     *
+     * @return false if the game is not over, otherwise true
+     */
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    /**
+     * Resets the game.
+     *
+     * @param gameOver the boolean flag
+     */
+    public void setGameOver(final boolean gameOver) {
+        this.gameOver = gameOver;
+    }
     /**
      * Returns true if the argument is equal to this game state, else false.
      *
