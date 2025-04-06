@@ -50,8 +50,8 @@ public class Enemy extends GameObject {
      * Renders the GIF of the enemy.
      */
     @Override
-    public void render(final GraphicsContext gc) {
-        gc.drawImage(ENEMY_IMAGE, xCoordinate - (double) WIDTH / 2,
+    public void render(final GraphicsContext graphicContext) {
+        graphicContext.drawImage(ENEMY_IMAGE, xCoordinate - (double) WIDTH / 2,
                 yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
 

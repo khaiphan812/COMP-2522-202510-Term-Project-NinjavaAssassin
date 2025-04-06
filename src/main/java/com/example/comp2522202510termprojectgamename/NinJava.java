@@ -112,13 +112,13 @@ public class NinJava extends Application {
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override
             public void handle(final long currentTime) {
-                GraphicsContext gc = canvas.getGraphicsContext2D();
-                gc.clearRect(0, 0, GameState.WIDTH, GameState.HEIGHT);
+                GraphicsContext graphicContext = canvas.getGraphicsContext2D();
+                graphicContext.clearRect(0, 0, GameState.WIDTH, GameState.HEIGHT);
                 gameLogic.updateGame(currentTime);
 
                 for (GameObject object : gameState.getGameObjects()) {
                     object.update();
-                    object.render(gc);
+                    object.render(graphicContext);
                 }
             }
         };

@@ -71,8 +71,8 @@ public class Player extends GameObject {
      * Renders the GIF of the player.
      */
     @Override
-    public void render(final GraphicsContext gc) {
-        gc.drawImage(PL_IMAGE, xCoordinate - (double) WIDTH / 2,
+    public void render(final GraphicsContext graphicContext) {
+        graphicContext.drawImage(PL_IMAGE, xCoordinate - (double) WIDTH / 2,
                 yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
     /**

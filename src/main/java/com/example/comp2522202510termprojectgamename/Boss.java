@@ -47,8 +47,8 @@ public class Boss extends GameObject {
      * Renders the GIF of the boss.
      */
     @Override
-    public void render(final GraphicsContext gc) {
-        gc.drawImage(BOSS_IMAGE, xCoordinate - (double) WIDTH / 2,
+    public void render(final GraphicsContext graphicContext) {
+        graphicContext.drawImage(BOSS_IMAGE, xCoordinate - (double) WIDTH / 2,
                 yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
 

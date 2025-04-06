@@ -61,8 +61,8 @@ public class Shuriken extends GameObject {
      * Renders the GIF of the shuriken.
      */
     @Override
-    public void render(final GraphicsContext gc) {
-        gc.drawImage(SHURIKEN_IMAGE, xCoordinate - (double) WIDTH / 2,
+    public void render(final GraphicsContext graphicContext) {
+        graphicContext.drawImage(SHURIKEN_IMAGE, xCoordinate - (double) WIDTH / 2,
                 yCoordinate - (double) HEIGHT / 2, WIDTH, HEIGHT);
     }
     /**
