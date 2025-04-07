@@ -26,7 +26,7 @@ public class Enemy extends GameObject {
      * The speed of the enemy is a double.
      */
     protected static double speed = INITIAL_SPEED;
-    private boolean dead = false;
+    private boolean isDead = false;
 
     /**
      * Constructs an enemy with specified width, height, X and Y coordinates.
@@ -81,7 +81,7 @@ public class Enemy extends GameObject {
      * @param dead a boolean value
      */
     public void setDead(final boolean dead) {
-        this.dead = dead;
+        this.isDead = dead;
     }
 
     /**
@@ -91,7 +91,7 @@ public class Enemy extends GameObject {
      */
     @Override
     public boolean isDead() {
-        return dead;
+        return isDead;
     }
 
     /**
@@ -106,7 +106,7 @@ public class Enemy extends GameObject {
             return false;
         }
         Enemy enemy = (Enemy) object;
-        return dead == enemy.dead;
+        return isDead == enemy.isDead;
     }
 
     /**
@@ -116,7 +116,7 @@ public class Enemy extends GameObject {
      */
     @Override
     public int hashCode() {
-        return Objects.hashCode(dead);
+        return Objects.hashCode(isDead);
     }
 
     /**
@@ -126,6 +126,6 @@ public class Enemy extends GameObject {
      */
     @Override
     public String toString() {
-        return "Enemy{" + "dead=" + dead + '}';
+        return "Enemy{" + "dead=" + isDead + '}';
     }
 }
