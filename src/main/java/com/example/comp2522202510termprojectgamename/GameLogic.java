@@ -37,7 +37,7 @@ public class GameLogic {
         this.gameUI = gameUI;
     }
 
-    /**
+    /*
      * Spawns an enemy in the game.
      *
      */
@@ -49,7 +49,7 @@ public class GameLogic {
         gameState.getGameObjects().add(enemy);
     }
 
-    /**
+    /*
      * Spawns a boss in the game.
      *
      */
