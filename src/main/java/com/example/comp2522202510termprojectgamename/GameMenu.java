@@ -74,10 +74,10 @@ public class GameMenu {
         return menuPane;
     }
 
-    private Button createButton(final String text, final double y) {
+    private Button createButton(final String text, final double size) {
         Button button = new Button(text);
         button.setLayoutX((GameState.WIDTH - button.getPrefWidth()) / 2);
-        button.setLayoutY(y);
+        button.setLayoutY(size);
         button.setTextFill(javafx.scene.paint.Color.WHITE);
         button.setStyle("-fx-background-color: rgba(21,10,10,0.44);"
                 + "-fx-font-size: 20; -fx-font-weight: bold; -fx-padding: 10 20;");
