@@ -36,7 +36,6 @@ public class GameLogic {
         this.gameState = gameState;
         this.gameUI = gameUI;
     }
-
     /*
      * Spawns an enemy in the game.
      *
@@ -48,7 +47,6 @@ public class GameLogic {
         Enemy enemy = new Enemy(randomCoordinate, COORDINATE_ELO_3);
         gameState.getGameObjects().add(enemy);
     }
-
     /*
      * Spawns a boss in the game.
      *
