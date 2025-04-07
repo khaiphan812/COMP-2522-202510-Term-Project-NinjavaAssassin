@@ -22,7 +22,7 @@ public class Shuriken extends GameObject {
     private static final double SPEED = 7;
     private static final Image SHURIKEN_IMAGE = new Image(Objects.requireNonNull(Shuriken.class.
             getResourceAsStream("/images/grey.gif")));
-    private boolean dead = false;
+    private boolean isDead = false;
     /**
      * Constructs a new shuriken.
      *
@@ -71,7 +71,7 @@ public class Shuriken extends GameObject {
      * @param dead a boolean value
      */
     public void setDead(final boolean dead) {
-        this.dead = dead;
+        this.isDead = dead;
     }
     /**
      * Check if the shuriken is dead (needs to disappear).
@@ -80,6 +80,6 @@ public class Shuriken extends GameObject {
      */
     @Override
     public boolean isDead() {
-        return dead;
+        return isDead;
     }
 }
