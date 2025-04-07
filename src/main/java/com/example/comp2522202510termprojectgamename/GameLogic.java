@@ -62,7 +62,6 @@ public class GameLogic {
         if (gameState.getNumLives() == 0 && !gameState.isGameOver()) {
             gameState.setGameOver(true);
             gameUI.showGameOverMessage();
-            gameUI.showGameOverMessage();
         }
     }
 
